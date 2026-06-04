@@ -4,152 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>D.I.A.S. — Detașamentul de Intervenție și Acțiuni Speciale</title>
+    <meta name="description" content="D.I.A.S. protejează copiii și tinerii împotriva hărțuirii, bullying-ului și comportamentului toxic online. Raportează un caz acum.">
+    <meta name="keywords" content="bullying online Romania, hărțuire internet, protectie copii online, raportare bullying, DIAS Romania, siguranta online tineri">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="D.I.A.S. — Protecție Online pentru Tineri">
+    <meta property="og:description" content="Raportează hărțuire, bullying sau comportament toxic online. Echipa D.I.A.S. intervine și te ajută.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diasromania.github.io/dias_site">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://diasromania.github.io/dias_site">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════ HEADER -->
-<header class="header">
-    <div class="header-top">
-        <div class="container header-top-inner">
-            <span>🔒 Toate rapoartele sunt tratate confidențial</span>
-            <span>Contact: <a href="mailto:dias.romania@gmail.com">dias.romania@gmail.com</a></span>
-        </div>
-    </div>
-    <div class="header-main">
-        <div class="container header-main-inner">
-            <div class="logo-block">
-                <div class="logo-shield">
-                    <svg viewBox="0 0 80 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M40 2 L76 18 L76 45 C76 65 60 82 40 88 C20 82 4 65 4 45 L4 18 Z" fill="#0a1628" stroke="#c8a84b" stroke-width="2.5"/>
-                        <path d="M40 10 L68 22 L68 45 C68 61 55 75 40 80 C25 75 12 61 12 45 L12 22 Z" fill="none" stroke="#c8a84b" stroke-width="1" opacity="0.5"/>
-                        <text x="40" y="52" text-anchor="middle" font-family="Oswald,sans-serif" font-size="18" font-weight="700" fill="#c8a84b" letter-spacing="2">DIAS</text>
-                        <line x1="22" y1="38" x2="58" y2="38" stroke="#c8a84b" stroke-width="1" opacity="0.6"/>
-                    </svg>
-                </div>
-                <div class="logo-text">
-                    <div class="logo-title">D.I.A.S.</div>
-                    <div class="logo-subtitle">Detașamentul de Intervenție și Acțiuni Speciale</div>
-                </div>
+<!-- ═══ HEADER / NAV ═══════════════════════════════════ -->
+<header class="header" id="header">
+    <div class="container header-inner">
+        <!-- Logo stanga -->
+        <a href="#acasa" class="logo">
+            <img src="assets/dias-logo.png" alt="D.I.A.S. Logo" class="logo-img">
+            <div class="logo-text-block">
+                <span class="logo-name">D.I.A.S.</span>
+                <span class="logo-sub">Detașamentul de Intervenție și Acțiuni Speciale</span>
             </div>
-            <nav class="nav">
-                <a href="#acasa">Acasă</a>
-                <a href="#misiune">Misiune</a>
-                <a href="#cum-ajutam">Cum Ajutăm</a>
-                <a href="#statistici">Statistici</a>
-                <a href="#echipa">Echipă</a>
-                <a href="#raportare" class="nav-btn">Raportează</a>
-            </nav>
-            <button class="hamburger" id="hamburger" aria-label="Meniu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+        </a>
+
+        <!-- Nav dreapta -->
+        <nav class="nav" id="nav">
+            <a href="#acasa">ACASĂ</a>
+            <a href="#despre">DESPRE NOI</a>
+            <a href="#cum-ajutam">CUM LUCRĂM</a>
+            <a href="#statistici">STATISTICI</a>
+            <a href="#echipa">ECHIPĂ</a>
+            <a href="#raportare" class="nav-cta">RAPORTEAZĂ</a>
+        </nav>
+
+        <button class="hamburger" id="hamburger" aria-label="Meniu">
+            <span></span><span></span><span></span>
+        </button>
     </div>
 </header>
 
-<!-- ═══════════════════════════════════════════════════════ HERO -->
+<!-- ═══ HERO ════════════════════════════════════════════ -->
 <section class="hero" id="acasa">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-        <div class="hero-badge">ORGANIZAȚIE DE PROTECȚIE DIGITALĂ</div>
-        <h1 class="hero-title">Protejăm tinerii<br>în mediul digital</h1>
-        <p class="hero-desc">D.I.A.S. este o comunitate dedicată combaterii hărțuirii, bullying-ului și comportamentului toxic online. Suntem alături de fiecare victimă.</p>
-        <div class="hero-actions">
-            <a href="#raportare" class="btn btn-primary">Raportează un caz</a>
-            <a href="#misiune" class="btn btn-outline">Află mai multe</a>
-        </div>
-        <div class="hero-stats">
-            <div class="hstat"><span class="hstat-num" data-target="247">0</span><span class="hstat-label">Cazuri raportate</span></div>
-            <div class="hstat-divider"></div>
-            <div class="hstat"><span class="hstat-num" data-target="189">0</span><span class="hstat-label">Cazuri rezolvate</span></div>
-            <div class="hstat-divider"></div>
-            <div class="hstat"><span class="hstat-num" data-target="32">0</span><span class="hstat-label">Voluntari activi</span></div>
+        <p class="hero-eyebrow">PROTECȚIE DIGITALĂ · ROMÂNIA</p>
+        <h1 class="hero-title">SIGURANȚĂ<br>ÎN MEDIUL DIGITAL</h1>
+        <p class="hero-sub">Combaterea hărțuirii și bullying-ului online pentru copii și tineri din România</p>
+        <div class="hero-btns">
+            <a href="#raportare" class="btn btn-primary">RAPORTEAZĂ UN CAZ</a>
+            <a href="#despre" class="btn btn-ghost">AFLĂ MAI MULTE</a>
         </div>
     </div>
-    <div class="hero-scroll">
-        <div class="scroll-indicator"></div>
+    <!-- Bara jos ca SRI -->
+    <div class="hero-bottom-bar">
+        <div class="container hero-bottom-inner">
+            <div class="alert-level">
+                <span class="al-label">NIVEL ACTIVITATE</span>
+                <div class="al-bars">
+                    <div class="al-bar green"></div>
+                    <div class="al-bar green"></div>
+                    <div class="al-bar yellow"></div>
+                    <div class="al-bar red"></div>
+                </div>
+                <span class="al-status">Activitate normală de monitorizare</span>
+            </div>
+            <a href="#raportare" class="hero-contact-btn">INTRĂ ÎN CONTACT</a>
+        </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ ALERTA BAND -->
+<!-- ═══ ALERT BAND ══════════════════════════════════════ -->
 <div class="alert-band">
-    <div class="container alert-band-inner">
-        <span class="alert-icon">⚠</span>
-        <span>Dacă ești în pericol iminent, contactează <strong>112</strong>. D.I.A.S. intervine în cazuri de hărțuire și bullying online.</span>
+    <div class="container">
+        ⚠ Dacă ești în pericol fizic imediat, contactează <strong>112</strong>. D.I.A.S. intervine în cazuri de hărțuire și bullying online.
     </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════ MISIUNE -->
-<section class="section" id="misiune">
+<!-- ═══ DESPRE ══════════════════════════════════════════ -->
+<section class="section" id="despre">
     <div class="container">
         <div class="section-header">
             <div class="section-tag">CINE SUNTEM</div>
-            <h2 class="section-title">Misiunea noastră</h2>
+            <h2 class="section-title">Despre D.I.A.S.</h2>
             <div class="section-line"></div>
         </div>
-        <div class="mission-grid">
-            <div class="mission-text">
-                <p>D.I.A.S. — <strong>Detașamentul de Intervenție și Acțiuni Speciale</strong> — este o comunitate online dedicată protejării copiilor și tinerilor în mediul digital.</p>
+        <div class="despre-grid">
+            <div class="despre-text">
+                <p><strong>D.I.A.S.</strong> — Detașamentul de Intervenție și Acțiuni Speciale — este o comunitate online dedicată protejării copiilor și tinerilor în mediul digital.</p>
                 <p>Scopul nostru este să oferim ajutor persoanelor care se confruntă cu <strong>hărțuire, bullying, amenințări</strong> sau comportament toxic pe internet, indiferent de platformă.</p>
-                <p>Echipa noastră de voluntari tratează fiecare caz cu seriozitate, discreție și empatie. Nu ești singur.</p>
-                <div class="mission-values">
-                    <div class="mval"><div class="mval-icon">🛡</div><div><strong>Confidențialitate</strong><br><small>Datele tale sunt protejate</small></div></div>
-                    <div class="mval"><div class="mval-icon">⚡</div><div><strong>Răspuns rapid</strong><br><small>Intervenim în 24-48 ore</small></div></div>
-                    <div class="mval"><div class="mval-icon">🤝</div><div><strong>Voluntariat</strong><br><small>Oameni care vor să ajute</small></div></div>
+                <p>Echipa noastră de voluntari tratează fiecare caz cu seriozitate, discreție și empatie. <strong>Nu ești singur.</strong></p>
+                <div class="valori">
+                    <div class="val-item"><div class="val-icon">🛡</div><div><strong>Confidențialitate</strong><br><small>Datele tale sunt protejate</small></div></div>
+                    <div class="val-item"><div class="val-icon">⚡</div><div><strong>Răspuns rapid</strong><br><small>Intervenim în 24-48 ore</small></div></div>
+                    <div class="val-item"><div class="val-icon">🤝</div><div><strong>Voluntariat</strong><br><small>Oameni care vor să ajute</small></div></div>
                 </div>
             </div>
-            <div class="mission-card">
-                <div class="mc-header">DECLARAȚIE DE MISIUNE</div>
-                <div class="mc-body">
-                    <div class="mc-quote">"</div>
-                    <p>Ne angajăm să creăm un internet mai sigur pentru fiecare tânăr din România, prin intervenție directă, educație și sprijin comunitar.</p>
-                    <div class="mc-seal">
-                        <div class="mc-seal-inner">D.I.A.S.<br><small>ROMÂNIA</small></div>
+            <div class="despre-card">
+                <div class="dc-top">DECLARAȚIE DE MISIUNE</div>
+                <div class="dc-body">
+                    <div class="dc-logo-wrap">
+                        <img src="assets/dias-logo.png" alt="D.I.A.S." class="dc-logo">
                     </div>
+                    <p>"Ne angajăm să creăm un internet mai sigur pentru fiecare tânăr din România, prin intervenție directă, educație și sprijin comunitar."</p>
+                    <div class="dc-bottom">D.I.A.S. ROMÂNIA · 2025</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ CUM AJUTAM -->
+<!-- ═══ CUM LUCRAM ══════════════════════════════════════ -->
 <section class="section section-dark" id="cum-ajutam">
     <div class="container">
         <div class="section-header">
             <div class="section-tag">SERVICII</div>
-            <h2 class="section-title">Cum îți putem ajuta</h2>
+            <h2 class="section-title">Cum lucrăm</h2>
             <div class="section-line"></div>
         </div>
         <div class="services-grid">
             <div class="service-card">
+                <div class="sc-num">01</div>
                 <div class="sc-icon">💬</div>
                 <h3>Bullying Online</h3>
                 <p>Hărțuire pe rețele sociale, mesaje ofensatoare, excludere din grupuri. Intervenim și oferim îndrumare.</p>
             </div>
             <div class="service-card">
+                <div class="sc-num">02</div>
                 <div class="sc-icon">⚠️</div>
                 <h3>Amenințări & Extorcare</h3>
                 <p>Amenințări online, blackmail, revenge porn. Documentăm și te ajutăm să raportezi la autorități.</p>
             </div>
             <div class="service-card">
+                <div class="sc-num">03</div>
                 <div class="sc-icon">🎮</div>
                 <h3>Toxic în Gaming</h3>
-                <p>Comportament toxic în jocuri online, hărțuire în comunități Discord, Twitch și alte platforme.</p>
+                <p>Comportament toxic în jocuri online, hărțuire în comunități Discord și alte platforme.</p>
             </div>
             <div class="service-card">
+                <div class="sc-num">04</div>
                 <div class="sc-icon">📱</div>
                 <h3>Rețele Sociale</h3>
                 <p>Hărțuire pe TikTok, Instagram, Facebook, Snapchat. Te ajutăm să raportezi și să te protejezi.</p>
             </div>
             <div class="service-card">
+                <div class="sc-num">05</div>
                 <div class="sc-icon">🔍</div>
                 <h3>Investigație</h3>
                 <p>Documentăm cazurile și le transmitem autorităților competente când situația o impune.</p>
             </div>
             <div class="service-card">
+                <div class="sc-num">06</div>
                 <div class="sc-icon">🧠</div>
                 <h3>Consiliere & Suport</h3>
                 <p>Sprijin emoțional și îndrumare pentru victime și familiile acestora.</p>
@@ -158,8 +167,8 @@
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ STATISTICI -->
-<section class="section stats-section" id="statistici">
+<!-- ═══ STATISTICI ══════════════════════════════════════ -->
+<section class="section" id="statistici">
     <div class="container">
         <div class="section-header">
             <div class="section-tag">IMPACT</div>
@@ -170,164 +179,133 @@
             <div class="stat-card">
                 <div class="stat-num" data-target="247">0</div>
                 <div class="stat-label">Cazuri raportate</div>
-                <div class="stat-bar"><div class="stat-fill" style="width:85%"></div></div>
+                <div class="stat-bar"><div class="stat-fill" style="--w:85%"></div></div>
             </div>
             <div class="stat-card">
                 <div class="stat-num" data-target="189">0</div>
                 <div class="stat-label">Cazuri rezolvate</div>
-                <div class="stat-bar"><div class="stat-fill" style="width:76%"></div></div>
+                <div class="stat-bar"><div class="stat-fill" style="--w:76%"></div></div>
             </div>
             <div class="stat-card">
                 <div class="stat-num" data-target="76">0</div>
                 <div class="stat-label">% Rată de rezolvare</div>
-                <div class="stat-bar"><div class="stat-fill" style="width:76%"></div></div>
+                <div class="stat-bar"><div class="stat-fill" style="--w:76%"></div></div>
             </div>
             <div class="stat-card">
                 <div class="stat-num" data-target="32">0</div>
                 <div class="stat-label">Voluntari activi</div>
-                <div class="stat-bar"><div class="stat-fill" style="width:60%"></div></div>
+                <div class="stat-bar"><div class="stat-fill" style="--w:60%"></div></div>
             </div>
         </div>
-        <div class="categories-grid">
-            <div class="cat-item">
-                <div class="cat-label">Bullying online</div>
-                <div class="cat-bar-wrap"><div class="cat-bar" style="width:65%"></div></div>
-                <div class="cat-pct">65%</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-label">Hărțuire / Amenințări</div>
-                <div class="cat-bar-wrap"><div class="cat-bar" style="width:20%"></div></div>
-                <div class="cat-pct">20%</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-label">Toxic în gaming</div>
-                <div class="cat-bar-wrap"><div class="cat-bar" style="width:10%"></div></div>
-                <div class="cat-pct">10%</div>
-            </div>
-            <div class="cat-item">
-                <div class="cat-label">Altele</div>
-                <div class="cat-bar-wrap"><div class="cat-bar" style="width:5%"></div></div>
-                <div class="cat-pct">5%</div>
-            </div>
+        <div class="cat-grid">
+            <div class="cat-row"><span>Bullying online</span><div class="cat-bar-wrap"><div class="cat-bar" style="--w:65%"></div></div><span class="cat-pct">65%</span></div>
+            <div class="cat-row"><span>Hărțuire / Amenințări</span><div class="cat-bar-wrap"><div class="cat-bar" style="--w:20%"></div></div><span class="cat-pct">20%</span></div>
+            <div class="cat-row"><span>Toxic în gaming</span><div class="cat-bar-wrap"><div class="cat-bar" style="--w:10%"></div></div><span class="cat-pct">10%</span></div>
+            <div class="cat-row"><span>Altele</span><div class="cat-bar-wrap"><div class="cat-bar" style="--w:5%"></div></div><span class="cat-pct">5%</span></div>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ ECHIPA -->
+<!-- ═══ ECHIPA ══════════════════════════════════════════ -->
 <section class="section section-dark" id="echipa">
     <div class="container">
         <div class="section-header">
             <div class="section-tag">ECHIPA</div>
-            <h2 class="section-title">Oamenii din spatele D.I.A.S.</h2>
+            <h2 class="section-title">Oamenii D.I.A.S.</h2>
             <div class="section-line"></div>
         </div>
         <div class="team-grid">
             <div class="team-card featured">
                 <div class="tc-badge">FONDATOR</div>
-                <div class="tc-avatar">A</div>
+                <div class="tc-av">A</div>
                 <div class="tc-name">Alexa</div>
                 <div class="tc-role">Director General</div>
-                <div class="tc-desc">Fondatorul D.I.A.S., dedicat protejării tinerilor în mediul digital.</div>
+                <p class="tc-desc">Fondatorul D.I.A.S., dedicat protejării tinerilor în mediul digital din România.</p>
             </div>
             <div class="team-card">
-                <div class="tc-avatar">?</div>
+                <div class="tc-av">?</div>
                 <div class="tc-name">Voluntar D.I.A.S.</div>
                 <div class="tc-role">Investigator</div>
-                <div class="tc-desc">Slot disponibil. Vrei să faci parte din echipă?</div>
-                <a href="#raportare" class="tc-join">Alătură-te</a>
+                <p class="tc-desc">Slot disponibil. Vrei să faci parte din echipă?</p>
+                <a href="mailto:dias.romania@gmail.com" class="tc-btn">Alătură-te</a>
             </div>
             <div class="team-card">
-                <div class="tc-avatar">?</div>
+                <div class="tc-av">?</div>
                 <div class="tc-name">Voluntar D.I.A.S.</div>
                 <div class="tc-role">Suport Victime</div>
-                <div class="tc-desc">Slot disponibil. Vrei să faci parte din echipă?</div>
-                <a href="#raportare" class="tc-join">Alătură-te</a>
+                <p class="tc-desc">Slot disponibil. Vrei să faci parte din echipă?</p>
+                <a href="mailto:dias.romania@gmail.com" class="tc-btn">Alătură-te</a>
             </div>
         </div>
-        <div class="join-banner">
-            <div class="jb-content">
-                <h3>Vrei să ajuți?</h3>
-                <p>D.I.A.S. caută voluntari pasionați de siguranța online. Nu ai nevoie de experiență — doar de dorința de a face o diferență.</p>
-            </div>
-            <a href="mailto:dias.romania@gmail.com" class="btn btn-primary">Aplică acum</a>
+        <div class="join-bar">
+            <div><h3>Vrei să ajuți?</h3><p>D.I.A.S. caută voluntari pasionați de siguranța online. Nu ai nevoie de experiență — doar dorința de a face o diferență.</p></div>
+            <a href="mailto:dias.romania@gmail.com" class="btn btn-primary">APLICĂ ACUM</a>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ RAPORTARE -->
+<!-- ═══ RAPORTARE ════════════════════════════════════════ -->
 <section class="section raportare-section" id="raportare">
     <div class="container">
         <div class="section-header">
             <div class="section-tag">RAPORTARE</div>
             <h2 class="section-title">Raportează un caz</h2>
             <div class="section-line"></div>
-            <p class="section-desc">Completează formularul de mai jos. Toate informațiile sunt tratate strict confidențial de echipa D.I.A.S.</p>
+            <p class="section-desc">Toate informațiile sunt tratate strict confidențial de echipa D.I.A.S.</p>
         </div>
-        <div class="raportare-wrap">
-            <div class="raportare-info">
-                <div class="ri-item"><div class="ri-icon">🔒</div><div><strong>Confidențial 100%</strong><br>Datele tale nu sunt partajate cu nimeni în afara echipei D.I.A.S.</div></div>
-                <div class="ri-item"><div class="ri-icon">⏱</div><div><strong>Răspuns în 24-48h</strong><br>Echipa noastră analizează fiecare caz și îți răspunde în cel mai scurt timp.</div></div>
-                <div class="ri-item"><div class="ri-icon">📋</div><div><strong>Urmărire caz</strong><br>Primești un număr de caz și poți urmări statusul intervenției.</div></div>
-                <div class="ri-item ri-urgent">
-                    <div class="ri-icon">🚨</div>
-                    <div><strong>Urgență?</strong><br>Dacă ești în pericol fizic imediat, sună <strong>112</strong> acum.</div>
-                </div>
+        <div class="raportare-grid">
+            <div class="rap-info">
+                <div class="ri"><div class="ri-icon">🔒</div><div><strong>Confidențial 100%</strong><br><small>Datele tale nu sunt partajate cu nimeni în afara echipei.</small></div></div>
+                <div class="ri"><div class="ri-icon">⏱</div><div><strong>Răspuns în 24-48h</strong><br><small>Analizăm fiecare caz și răspundem cât mai repede.</small></div></div>
+                <div class="ri"><div class="ri-icon">📋</div><div><strong>Urmărire caz</strong><br><small>Primești un număr de caz și poți urmări statusul.</small></div></div>
+                <div class="ri urgent"><div class="ri-icon">🚨</div><div><strong>Urgență?</strong><br><small>Dacă ești în pericol fizic imediat, sună <strong>112</strong>.</small></div></div>
             </div>
-            <div class="form-container">
-                <div class="form-header">
-                    <div class="form-header-icon">📝</div>
+            <div class="form-wrap">
+                <div class="form-top">
+                    <img src="assets/dias-logo.png" alt="D.I.A.S." style="height:36px;">
                     <div>
-                        <div class="form-header-title">Formular de raportare</div>
-                        <div class="form-header-sub">D.I.A.S. Support System</div>
+                        <div class="form-title">Formular de raportare</div>
+                        <div class="form-sub">D.I.A.S. Support System</div>
                     </div>
                 </div>
-                <div class="form-iframe-wrap">
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLSdGthnDrXhJp_tRDmYbMoUXN8ot21KnZCwZUNRTyCgDD9gt9Q/viewform?embedded=true"
-                        width="100%"
-                        height="720"
-                        frameborder="0"
-                        marginheight="0"
-                        marginwidth="0"
-                        title="Formular raportare D.I.A.S.">
-                        Se încarcă…
-                    </iframe>
-                </div>
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdGthnDrXhJp_tRDmYbMoUXN8ot21KnZCwZUNRTyCgDD9gt9Q/viewform?embedded=true"
+                    width="100%" height="720" frameborder="0"
+                    marginheight="0" marginwidth="0"
+                    title="Formular raportare D.I.A.S.">Se încarcă…</iframe>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════════════ FOOTER -->
+<!-- ═══ FOOTER ══════════════════════════════════════════ -->
 <footer class="footer">
     <div class="container footer-inner">
-        <div class="footer-col">
-            <div class="footer-logo">
-                <div class="footer-shield">D.I.A.S.</div>
-            </div>
+        <div class="footer-brand">
+            <img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo-img">
             <p>Detașamentul de Intervenție și Acțiuni Speciale — protejăm tinerii în mediul digital.</p>
         </div>
         <div class="footer-col">
-            <div class="footer-title">Navigare</div>
+            <div class="footer-title">NAVIGARE</div>
             <a href="#acasa">Acasă</a>
-            <a href="#misiune">Misiune</a>
-            <a href="#cum-ajutam">Cum Ajutăm</a>
+            <a href="#despre">Despre noi</a>
+            <a href="#cum-ajutam">Cum lucrăm</a>
             <a href="#statistici">Statistici</a>
             <a href="#echipa">Echipă</a>
             <a href="#raportare">Raportare</a>
         </div>
         <div class="footer-col">
-            <div class="footer-title">Contact</div>
+            <div class="footer-title">CONTACT</div>
             <a href="mailto:dias.romania@gmail.com">dias.romania@gmail.com</a>
-            <a href="https://diasromania.github.io" target="_blank">diasromania.github.io</a>
+            <a href="https://diasromania.github.io/dias_site" target="_blank">diasromania.github.io</a>
         </div>
         <div class="footer-col">
-            <div class="footer-title">Legal</div>
-            <p style="font-size:12px;color:#8899aa;">D.I.A.S. este o organizație de voluntariat. Nu suntem o autoritate de stat. În cazuri grave, contactați Poliția Română sau DIICOT.</p>
+            <div class="footer-title">LEGAL</div>
+            <p style="font-size:12px;color:#556677;line-height:1.6;">D.I.A.S. este o organizație de voluntariat. Nu suntem o autoritate de stat. În cazuri grave, contactați Poliția Română.</p>
         </div>
     </div>
     <div class="footer-bottom">
-        <div class="container">
+        <div class="container footer-bottom-inner">
             <span>© 2025 D.I.A.S. — Detașamentul de Intervenție și Acțiuni Speciale</span>
             <span>Toate drepturile rezervate</span>
         </div>
