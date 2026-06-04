@@ -6,115 +6,271 @@
     <title>D.I.A.S. — Detașamentul de Intervenție și Acțiuni Speciale</title>
     <meta name="description" content="D.I.A.S. protejează copiii și tinerii împotriva hărțuirii și bullying-ului online.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://diasromania.github.io/dias_site">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- NAV -->
+<!-- HEADER -->
 <header class="header">
-    <div class="header-top">
-        <div class="wrap header-top-inner">
-            <img src="assets/dias-logo.png" alt="D.I.A.S." class="header-logo">
-            <div class="header-title-block">
-                <div class="header-title">Detașamentul de Intervenție și Acțiuni Speciale</div>
-                <div class="header-sub">D.I.A.S. — Protecție digitală pentru tineri</div>
+    <div class="wrap header-inner">
+        <div class="logo">
+            <img src="assets/dias-logo.png" alt="D.I.A.S.">
+            <div>
+                <div class="logo-name">D.I.A.S.</div>
+                <div class="logo-sub">Detașamentul de Intervenție și Acțiuni Speciale</div>
             </div>
         </div>
+        <nav class="tabs" id="tabs">
+            <button class="tab active" data-tab="acasa">Acasă</button>
+            <button class="tab" data-tab="despre">Despre noi</button>
+            <button class="tab" data-tab="stiri">Știri</button>
+            <button class="tab" data-tab="contact">Contact</button>
+        </nav>
+        <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </button>
     </div>
-    <nav class="nav">
-        <div class="wrap nav-inner">
-            <a href="index.html" class="nav-link active">Acasă</a>
-            <a href="despre.html" class="nav-link">Despre noi</a>
-            <a href="stiri.html" class="nav-link">Știri</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-    </nav>
 </header>
 
-<!-- HERO SLIDER -->
-<section class="hero">
-    <div class="hero-slide">
-        <div class="hero-overlay"></div>
-        <div class="wrap hero-content">
-            <p class="hero-text">D.I.A.S. intervine pentru protejarea tinerilor împotriva hărțuirii, bullying-ului și comportamentului toxic în mediul online, oferind sprijin și îndrumare fiecărei victime.</p>
-            <a href="contact.html" class="hero-btn">Informații suplimentare</a>
-        </div>
-    </div>
-</section>
+<!-- PAGINI -->
+<main>
 
-<!-- BAND -->
-<div class="band">
-    <div class="wrap band-inner">
-        <div class="band-item">
-            <div class="band-icon">🛡️</div>
-            <div>
-                <strong>Confidențialitate garantată</strong>
-                <p>Toate rapoartele sunt tratate strict confidențial de echipa D.I.A.S.</p>
-            </div>
-        </div>
-        <div class="band-sep"></div>
-        <div class="band-item">
-            <div class="band-icon">⚡</div>
-            <div>
-                <strong>Răspuns rapid</strong>
-                <p>Intervenim în 24-48 de ore de la primirea sesizării.</p>
-            </div>
-        </div>
-        <div class="band-sep"></div>
-        <div class="band-item">
-            <div class="band-icon">🤝</div>
-            <div>
-                <strong>Voluntariat</strong>
-                <p>O comunitate de oameni dedicați siguranței online.</p>
-            </div>
-        </div>
-    </div>
-</div>
+    <!-- ── ACASĂ ── -->
+    <div class="page active" id="page-acasa">
 
-<!-- STIRI RECENTE -->
-<section class="main-section">
-    <div class="wrap">
-        <h2 class="section-title">Știri recente</h2>
-        <div class="news-grid">
-            <div class="news-card">
-                <div class="news-date">04 Iunie 2025</div>
-                <h3 class="news-title">D.I.A.S. lansează platforma oficială de raportare online</h3>
-                <p class="news-excerpt">Începând de astăzi, victimele hărțuirii online pot depune sesizări direct prin intermediul platformei noastre.</p>
-                <a href="stiri.html" class="news-link">Citește mai mult →</a>
+        <section class="hero-section">
+            <div class="wrap hero-wrap">
+                <div class="hero-text">
+                    <p class="hero-tag">Protecție digitală · România</p>
+                    <h1>Siguranță pentru tineri<br>în mediul online</h1>
+                    <p class="hero-desc">D.I.A.S. este o comunitate de voluntari dedicată combaterii hărțuirii și bullying-ului online. Suntem alături de fiecare victimă.</p>
+                    <button class="btn" onclick="switchTab('contact')">Raportează un caz</button>
+                </div>
+                <div class="hero-logo-wrap">
+                    <img src="assets/dias-logo.png" alt="D.I.A.S.">
+                </div>
             </div>
-            <div class="news-card">
-                <div class="news-date">01 Iunie 2025</div>
-                <h3 class="news-title">Campanie de conștientizare privind bullying-ul digital</h3>
-                <p class="news-excerpt">D.I.A.S. lansează o campanie națională pentru educarea tinerilor cu privire la pericolele mediului online.</p>
-                <a href="stiri.html" class="news-link">Citește mai mult →</a>
-            </div>
-            <div class="news-card">
-                <div class="news-date">28 Mai 2025</div>
-                <h3 class="news-title">Echipa D.I.A.S. se extinde — recrutăm voluntari</h3>
-                <p class="news-excerpt">Căutăm voluntari pasionați de siguranța online care să se alăture echipei noastre de intervenție.</p>
-                <a href="contact.html" class="news-link">Citește mai mult →</a>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<!-- SESIZARE -->
-<section class="sesizare-section">
-    <div class="wrap sesizare-inner">
-        <div class="sesizare-text">
-            <h2>Ai o problemă? Raportează acum</h2>
-            <p>Dacă te confrunți cu hărțuire, bullying sau comportament toxic online, completează formularul nostru de sesizare. Echipa D.I.A.S. va analiza cazul tău și te va contacta în cel mai scurt timp.</p>
-            <p>Sesizările trebuie să conțină o descriere a situației, platformele implicate și, dacă este posibil, dovezi (capturi de ecran, linkuri).</p>
-            <a href="contact.html" class="btn-sesizare">Depune o sesizare</a>
-        </div>
-        <div class="sesizare-logo">
-            <img src="assets/dias-logo.png" alt="D.I.A.S.">
-        </div>
+        <section class="section">
+            <div class="wrap">
+                <div class="cards3">
+                    <div class="card">
+                        <div class="card-icon">🛡️</div>
+                        <h3>Confidențialitate</h3>
+                        <p>Toate sesizările sunt tratate strict confidențial de echipa noastră.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Răspuns rapid</h3>
+                        <p>Intervenim în 24–48 de ore de la primirea sesizării tale.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🤝</div>
+                        <h3>Voluntariat</h3>
+                        <p>O comunitate de oameni dedicați siguranței tinerilor online.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-gray">
+            <div class="wrap">
+                <h2 class="section-title">Știri recente</h2>
+                <div class="news-list">
+                    <div class="news-item" onclick="switchTab('stiri')">
+                        <span class="news-date">04 Iun 2025</span>
+                        <div>
+                            <div class="news-title">D.I.A.S. lansează platforma oficială de raportare online</div>
+                            <div class="news-excerpt">Victimele hărțuirii online pot depune sesizări direct prin platforma noastră.</div>
+                        </div>
+                        <span class="news-arrow">›</span>
+                    </div>
+                    <div class="news-item" onclick="switchTab('stiri')">
+                        <span class="news-date">01 Iun 2025</span>
+                        <div>
+                            <div class="news-title">Campanie de conștientizare privind bullying-ul digital</div>
+                            <div class="news-excerpt">D.I.A.S. lansează o campanie pentru educarea tinerilor cu privire la pericolele online.</div>
+                        </div>
+                        <span class="news-arrow">›</span>
+                    </div>
+                    <div class="news-item" onclick="switchTab('stiri')">
+                        <span class="news-date">28 Mai 2025</span>
+                        <div>
+                            <div class="news-title">Echipa D.I.A.S. se extinde — recrutăm voluntari</div>
+                            <div class="news-excerpt">Căutăm voluntari pasionați de siguranța online.</div>
+                        </div>
+                        <span class="news-arrow">›</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="wrap cta-wrap">
+                <div>
+                    <h2>Ai o problemă? Vorbește cu noi.</h2>
+                    <p>Completează formularul nostru și echipa D.I.A.S. te va contacta în cel mai scurt timp.</p>
+                </div>
+                <button class="btn" onclick="switchTab('contact')">Depune o sesizare</button>
+            </div>
+        </section>
+
     </div>
-</section>
+
+    <!-- ── DESPRE NOI ── -->
+    <div class="page" id="page-despre">
+
+        <div class="page-header">
+            <div class="wrap">
+                <h1>Despre noi</h1>
+                <p>Cine suntem și ce ne propunem</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="wrap content-wrap">
+                <div class="content-body">
+
+                    <h2>Misiunea noastră</h2>
+                    <p><strong>D.I.A.S.</strong> — Detașamentul de Intervenție și Acțiuni Speciale — este o comunitate online dedicată protejării copiilor și tinerilor în mediul digital din România.</p>
+                    <p>Scopul nostru este să oferim ajutor persoanelor care se confruntă cu <strong>hărțuire, bullying, amenințări</strong> sau comportament toxic pe internet, indiferent de platformă. Fiecare caz este tratat cu seriozitate, discreție și empatie.</p>
+
+                    <h2>Ce facem</h2>
+                    <ul>
+                        <li>Primim și analizăm sesizările privind hărțuirea și bullying-ul online</li>
+                        <li>Oferim îndrumare victimelor cu privire la pașii de urmat</li>
+                        <li>Documentăm cazurile și le transmitem autorităților când situația o impune</li>
+                        <li>Oferim sprijin emoțional și consiliere de bază</li>
+                        <li>Derulăm campanii de conștientizare privind siguranța online</li>
+                    </ul>
+
+                    <h2>Cum lucrăm</h2>
+                    <p>Toate sesizările primite sunt analizate de echipa D.I.A.S. în termen de <strong>24–48 de ore</strong>. Datele tale sunt tratate strict confidențial și nu sunt partajate cu terți fără acordul tău.</p>
+                    <p>În cazurile grave care implică amenințări fizice sau infracțiuni, te îndrumăm să contactezi autoritățile competente (Poliția Română, DIICOT).</p>
+
+                    <h2>Echipa</h2>
+                    <p>D.I.A.S. este formată din voluntari pasionați de siguranța online. Suntem tineri care au ales să facă ceva concret împotriva hărțuirii digitale. Dacă vrei să te alături, ne poți contacta oricând.</p>
+
+                </div>
+                <aside class="sidebar">
+                    <div class="side-box">
+                        <img src="assets/dias-logo.png" alt="D.I.A.S." style="height:60px;margin-bottom:12px;display:block;">
+                        <strong>Contact</strong>
+                        <p><a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></p>
+                        <hr>
+                        <strong>Sesizări</strong>
+                        <p><a href="#" onclick="switchTab('contact');return false;">Formular online</a></p>
+                        <hr>
+                        <p class="note">Organizație de voluntariat. Nu suntem o autoritate de stat.</p>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ── ȘTIRI ── -->
+    <div class="page" id="page-stiri">
+
+        <div class="page-header">
+            <div class="wrap">
+                <h1>Știri</h1>
+                <p>Ultimele noutăți din activitatea D.I.A.S.</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="wrap content-wrap">
+                <div class="content-body">
+
+                    <article class="article">
+                        <div class="article-date">04 Iunie 2025</div>
+                        <h2>D.I.A.S. lansează platforma oficială de raportare online</h2>
+                        <p>Începând de astăzi, victimele hărțuirii online pot depune sesizări direct prin intermediul platformei noastre. Formularul este disponibil 24/7 și toate rapoartele sunt tratate confidențial.</p>
+                        <p>Echipa D.I.A.S. se angajează să răspundă fiecărei sesizări în termen de 24–48 de ore și să ofere îndrumare personalizată fiecărei victime.</p>
+                    </article>
+
+                    <article class="article">
+                        <div class="article-date">01 Iunie 2025</div>
+                        <h2>Campanie de conștientizare privind bullying-ul digital</h2>
+                        <p>D.I.A.S. lansează o campanie națională pentru educarea tinerilor cu privire la pericolele mediului online. Campania vizează platformele de social media unde bullying-ul este cel mai frecvent întâlnit.</p>
+                        <p>Dacă vrei să contribui la această campanie, contactează-ne la <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a>.</p>
+                    </article>
+
+                    <article class="article">
+                        <div class="article-date">28 Mai 2025</div>
+                        <h2>Echipa D.I.A.S. se extinde — recrutăm voluntari</h2>
+                        <p>D.I.A.S. caută voluntari pasionați de siguranța online. Nu ai nevoie de experiență specifică — doar dorința de a face o diferență. Trimite-ne un email la <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a> cu câteva cuvinte despre tine.</p>
+                    </article>
+
+                </div>
+                <aside class="sidebar">
+                    <div class="side-box">
+                        <strong>Categorii</strong>
+                        <hr>
+                        <p><a href="#">Anunțuri (3)</a></p>
+                        <p><a href="#">Campanii (1)</a></p>
+                    </div>
+                    <div class="side-box" style="margin-top:16px;">
+                        <strong>Raportează un caz</strong>
+                        <p style="margin:8px 0 12px;font-size:13px;">Ai o problemă? Echipa D.I.A.S. te ajută.</p>
+                        <button class="btn btn-sm" onclick="switchTab('contact')">Sesizare online</button>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <div class="page" id="page-contact">
+
+        <div class="page-header">
+            <div class="wrap">
+                <h1>Contact</h1>
+                <p>Sesizări și informații de contact</p>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="wrap content-wrap">
+                <div class="content-body">
+                    <h2>Depune o sesizare</h2>
+                    <p>Dacă te confrunți cu hărțuire sau bullying online, completează formularul de mai jos. Echipa D.I.A.S. te va contacta prin email în termen de 24–48 de ore.</p>
+                    <p>Sesizarea trebuie să conțină o descriere clară a problemei, platformele implicate și, dacă este posibil, dovezi (capturi de ecran, linkuri).</p>
+                    <div class="form-wrap">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdGthnDrXhJp_tRDmYbMoUXN8ot21KnZCwZUNRTyCgDD9gt9Q/viewform?embedded=true"
+                            width="100%" height="680" frameborder="0"
+                            marginheight="0" marginwidth="0"
+                            title="Formular sesizare D.I.A.S.">Se încarcă…</iframe>
+                    </div>
+                </div>
+                <aside class="sidebar">
+                    <div class="side-box">
+                        <strong>Informații contact</strong>
+                        <hr>
+                        <p><strong>Email</strong><br><a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></p>
+                        <hr>
+                        <p style="font-size:12px;color:#777;">Răspundem în 24–48 de ore.</p>
+                        <hr>
+                        <p class="note urgent">⚠ Dacă ești în pericol fizic imediat, sună <strong>112</strong>.</p>
+                    </div>
+                    <div class="side-box" style="margin-top:16px;">
+                        <strong>Alătură-te echipei</strong>
+                        <p style="margin:8px 0 12px;font-size:13px;">Căutăm voluntari. Trimite-ne un email cu câteva cuvinte despre tine.</p>
+                        <a href="mailto:dias.contact.ro@gmail.com?subject=Voluntariat D.I.A.S." class="btn btn-sm" style="display:block;text-align:center;">Aplică acum</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+    </div>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -123,19 +279,19 @@
             <img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo">
             <p>Detașamentul de Intervenție și Acțiuni Speciale</p>
         </div>
-        <div class="footer-links">
+        <div class="footer-col">
             <strong>Navigare</strong>
-            <a href="index.html">Acasă</a>
-            <a href="despre.html">Despre noi</a>
-            <a href="stiri.html">Știri</a>
-            <a href="contact.html">Contact</a>
+            <a href="#" onclick="switchTab('acasa');return false;">Acasă</a>
+            <a href="#" onclick="switchTab('despre');return false;">Despre noi</a>
+            <a href="#" onclick="switchTab('stiri');return false;">Știri</a>
+            <a href="#" onclick="switchTab('contact');return false;">Contact</a>
         </div>
-        <div class="footer-links">
+        <div class="footer-col">
             <strong>Contact</strong>
             <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a>
         </div>
-        <div class="footer-note">
-            <p>D.I.A.S. este o organizație de voluntariat. Nu suntem o autoritate de stat. În situații de urgență, contactați <strong>112</strong>.</p>
+        <div class="footer-col">
+            <p class="note">D.I.A.S. este o organizație de voluntariat. Nu suntem o autoritate de stat. În situații de urgență, contactați <strong>112</strong>.</p>
         </div>
     </div>
     <div class="footer-bottom">
