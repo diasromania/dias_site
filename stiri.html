@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Știri — D.I.A.S.</title>
+    <title>È˜tiri â€” D.I.A.S.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -16,8 +16,8 @@
             <img src="assets/dias-logo.png" alt="D.I.A.S.">
             <div class="logo-text">
                 <div class="logo-name">D.I.A.S.</div>
-                <div class="logo-full">Detașamentul de Intervenție și Acțiuni Speciale</div>
-                <div class="logo-sub">Protecție digitală pentru tineri · România</div>
+                <div class="logo-full">DetaÈ™amentul de IntervenÈ›ie È™i AcÈ›iuni Speciale</div>
+                <div class="logo-sub">ProtecÈ›ie digitalÄƒ pentru tineri Â· RomÃ¢nia</div>
             </div>
         </a>
         <div class="header-right"><a href="contact.html" class="header-sesizare">Sesizare online</a></div>
@@ -25,33 +25,33 @@
 </header>
 <nav class="nav">
     <div class="wrap nav-inner">
-        <a href="index.html" class="nav-link">Acasă</a>
+        <a href="index.html" class="nav-link">AcasÄƒ</a>
         <a href="despre.html" class="nav-link">Prezentare</a>
-        <a href="stiri.html" class="nav-link active">Știri</a>
+        <a href="stiri.html" class="nav-link active">È˜tiri</a>
         <a href="contact.html" class="nav-link">Contact</a>
     </div>
 </nav>
-<div class="page-bar"><div class="wrap page-bar-inner"><span>Acasă</span><span class="pb-sep">›</span><span>Știri</span></div></div>
+<div class="page-bar"><div class="wrap page-bar-inner"><span>AcasÄƒ</span><span class="pb-sep">â€º</span><span>È˜tiri</span></div></div>
 
 <div class="wrap main-layout">
     <main class="main-content">
         <section class="content-block">
-            <h2 class="block-title">Știri și anunțuri</h2>
+            <h2 class="block-title">È˜tiri È™i anunÈ›uri</h2>
             <div id="stiri-container">
-                <div class="loading">Se încarcă știrile...</div>
+                <div class="loading">Se Ã®ncarcÄƒ È™tirile...</div>
             </div>
         </section>
     </main>
     <aside class="sidebar">
         <div class="side-widget">
             <div class="side-widget-title">Sesizare online</div>
-            <p>Ai o problemă? Echipa D.I.A.S. te ajută.</p>
+            <p>Ai o problemÄƒ? Echipa D.I.A.S. te ajutÄƒ.</p>
             <a href="contact.html" class="side-btn">Depune o sesizare</a>
         </div>
         <div class="side-widget" id="categorii-widget">
             <div class="side-widget-title">Categorii</div>
             <ul class="side-links" id="categorii-list">
-                <li><a href="#" onclick="filtreaza('toate');return false;">Toate știrile</a></li>
+                <li><a href="#" onclick="filtreaza('toate');return false;">Toate È™tirile</a></li>
             </ul>
         </div>
     </aside>
@@ -60,13 +60,13 @@
 <footer class="footer">
     <div class="footer-top">
         <div class="wrap footer-top-inner">
-            <div class="footer-brand"><img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo"><div><div class="footer-brand-name">D.I.A.S.</div><div class="footer-brand-sub">Detașamentul de Intervenție și Acțiuni Speciale</div></div></div>
-            <div class="footer-nav"><div class="footer-nav-title">Navigare</div><a href="index.html">Acasă</a><a href="despre.html">Prezentare</a><a href="stiri.html">Știri</a><a href="contact.html">Contact</a></div>
+            <div class="footer-brand"><img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo"><div><div class="footer-brand-name">D.I.A.S.</div><div class="footer-brand-sub">DetaÈ™amentul de IntervenÈ›ie È™i AcÈ›iuni Speciale</div></div></div>
+            <div class="footer-nav"><div class="footer-nav-title">Navigare</div><a href="index.html">AcasÄƒ</a><a href="despre.html">Prezentare</a><a href="stiri.html">È˜tiri</a><a href="contact.html">Contact</a></div>
             <div class="footer-nav"><div class="footer-nav-title">Contact</div><a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></div>
-            <div class="footer-nav"><div class="footer-nav-title">Mențiuni legale</div><p>D.I.A.S. este o organizație de voluntariat. Urgențe: <strong>112</strong>.</p></div>
+            <div class="footer-nav"><div class="footer-nav-title">MenÈ›iuni legale</div><p>D.I.A.S. este o organizaÈ›ie de voluntariat. UrgenÈ›e: <strong>112</strong>.</p></div>
         </div>
     </div>
-    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 D.I.A.S. — Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>Â© 2025 D.I.A.S. â€” Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div>
 </footer>
 
 <script>
@@ -83,13 +83,13 @@ async function incarcaStiri() {
         afiseazaStiri(toateStirile);
         construiesteCateg();
     } catch(e) {
-        document.getElementById('stiri-container').innerHTML = '<p style="color:#888;">Nu s-au putut încărca știrile.</p>';
+        document.getElementById('stiri-container').innerHTML = '<p style="color:#888;">Nu s-au putut Ã®ncÄƒrca È™tirile.</p>';
     }
 }
 
 function afiseazaStiri(stiri) {
     const el = document.getElementById('stiri-container');
-    if (!stiri.length) { el.innerHTML = '<p style="color:#888;">Nu există știri momentan.</p>'; return; }
+    if (!stiri.length) { el.innerHTML = '<p style="color:#888;">Nu existÄƒ È™tiri momentan.</p>'; return; }
     el.innerHTML = stiri.map(s => `
         <article class="article">
             <div class="article-meta">
