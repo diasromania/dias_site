@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "data": "04.06.2025",
+    "categorie": "Anunț",
+    "titlu": "D.I.A.S. lansează platforma oficială de raportare online",
+    "continut": "Începând de astăzi, victimele hărțuirii online pot depune sesizări direct prin intermediul platformei noastre. Formularul este disponibil 24/7 și toate rapoartele sunt tratate cu strictă confidențialitate de echipa D.I.A.S. Echipa se angajează să răspundă fiecărei sesizări în termen de 24–48 de ore."
+  },
+  {
+    "id": "2",
+    "data": "01.06.2025",
+    "categorie": "Campanie",
+    "titlu": "Campanie națională de conștientizare privind bullying-ul digital",
+    "continut": "D.I.A.S. lansează o campanie de conștientizare adresată tinerilor din România, cu privire la pericolele mediului online: hărțuire, manipulare, extorcare și comportament toxic. Dacă dorești să contribui, contactează-ne la dias.contact.ro@gmail.com."
+  },
+  {
+    "id": "3",
+    "data": "28.05.2025",
+    "categorie": "Recrutare",
+    "titlu": "Echipa D.I.A.S. se extinde — recrutăm noi membri",
+    "continut": "D.I.A.S. caută candidați serioși pentru echipa de intervenție. Nu este suficientă dorința — fiecare candidat trece printr-un proces de selecție și formare profesională înainte de a activa în echipă. Trimite un email la dias.contact.ro@gmail.com."
+  }
+]

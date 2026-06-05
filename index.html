@@ -75,31 +75,8 @@
 
         <section class="content-block">
             <h2 class="block-title">Activitate recentă</h2>
-            <div class="news-items">
-                <a href="stiri.html" class="news-row">
-                    <div class="news-row-date">04.06.2025</div>
-                    <div class="news-row-body">
-                        <div class="news-row-title">D.I.A.S. lansează platforma oficială de raportare online</div>
-                        <div class="news-row-desc">Victimele hărțuirii online pot depune sesizări prin platforma noastră. Toate rapoartele sunt tratate confidențial.</div>
-                    </div>
-                    <div class="news-row-arrow">›</div>
-                </a>
-                <a href="stiri.html" class="news-row">
-                    <div class="news-row-date">01.06.2025</div>
-                    <div class="news-row-body">
-                        <div class="news-row-title">Campanie națională de conștientizare privind bullying-ul digital</div>
-                        <div class="news-row-desc">D.I.A.S. lansează o campanie pentru educarea tinerilor cu privire la pericolele mediului online.</div>
-                    </div>
-                    <div class="news-row-arrow">›</div>
-                </a>
-                <a href="stiri.html" class="news-row">
-                    <div class="news-row-date">28.05.2025</div>
-                    <div class="news-row-body">
-                        <div class="news-row-title">Echipa D.I.A.S. se extinde — recrutăm noi membri</div>
-                        <div class="news-row-desc">D.I.A.S. caută candidați serioși pentru echipa de intervenție. Procesul de selecție este riguros.</div>
-                    </div>
-                    <div class="news-row-arrow">›</div>
-                </a>
+            <div class="news-items" id="stiri-acasa">
+                <div class="loading">Se încarcă...</div>
             </div>
             <a href="stiri.html" class="view-all">Vezi toate știrile &rarr;</a>
         </section>
@@ -177,6 +154,29 @@
         </div>
     </div>
 </footer>
+
+<script>
+// Incarca ultimele 3 stiri pe homepage
+fetch(`https://raw.githubusercontent.com/diasromania/dias_site/main/stiri.json?t=${Date.now()}`)
+    .then(r => r.json())
+    .then(stiri => {
+        const el = document.getElementById('stiri-acasa');
+        if (!stiri.length) { el.innerHTML = '<p style="color:#888;">Nu există știri momentan.</p>'; return; }
+        el.innerHTML = stiri.slice(0, 3).map(s => `
+            <a href="stiri.html" class="news-row">
+                <div class="news-row-date">${s.data}</div>
+                <div class="news-row-body">
+                    <div class="news-row-title">${s.titlu}</div>
+                    <div class="news-row-desc">${s.continut.substring(0, 100)}...</div>
+                </div>
+                <div class="news-row-arrow">›</div>
+            </a>
+        `).join('');
+    })
+    .catch(() => {
+        document.getElementById('stiri-acasa').innerHTML = '<p style="color:#888;">Nu s-au putut încărca știrile.</p>';
+    });
+</script>
 
 </body>
 </html>

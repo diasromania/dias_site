@@ -37,36 +37,9 @@
     <main class="main-content">
         <section class="content-block">
             <h2 class="block-title">Știri și anunțuri</h2>
-
-            <article class="article">
-                <div class="article-meta">
-                    <span class="article-date">04 Iunie 2025</span>
-                    <span class="article-cat">Anunț</span>
-                </div>
-                <h3 class="article-title">D.I.A.S. lansează platforma oficială de raportare online</h3>
-                <p>Începând de astăzi, victimele hărțuirii online pot depune sesizări direct prin intermediul platformei noastre. Formularul este disponibil 24/7 și toate rapoartele sunt tratate cu strictă confidențialitate de echipa D.I.A.S.</p>
-                <p>Echipa se angajează să răspundă fiecărei sesizări în termen de 24–48 de ore și să ofere îndrumare personalizată fiecărei victime, indiferent de gravitatea situației.</p>
-            </article>
-
-            <article class="article">
-                <div class="article-meta">
-                    <span class="article-date">01 Iunie 2025</span>
-                    <span class="article-cat">Campanie</span>
-                </div>
-                <h3 class="article-title">Campanie națională de conștientizare privind bullying-ul digital</h3>
-                <p>D.I.A.S. lansează o campanie de conștientizare adresată tinerilor din România, cu privire la pericolele mediului online: hărțuire, manipulare, extorcare și comportament toxic.</p>
-                <p>Dacă dorești să contribui la această campanie, contactează-ne la <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a>.</p>
-            </article>
-
-            <article class="article">
-                <div class="article-meta">
-                    <span class="article-date">28 Mai 2025</span>
-                    <span class="article-cat">Recrutare</span>
-                </div>
-                <h3 class="article-title">Echipa D.I.A.S. se extinde — recrutăm noi membri</h3>
-                <p>D.I.A.S. caută candidați serioși pentru echipa de intervenție. Nu este suficientă dorința — fiecare candidat trece printr-un proces de selecție și formare profesională înainte de a activa în echipă.</p>
-                <p>Trimite un email la <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a> cu câteva cuvinte despre tine și motivația ta.</p>
-            </article>
+            <div id="stiri-container">
+                <div class="loading">Se încarcă știrile...</div>
+            </div>
         </section>
     </main>
     <aside class="sidebar">
@@ -75,12 +48,10 @@
             <p>Ai o problemă? Echipa D.I.A.S. te ajută.</p>
             <a href="contact.html" class="side-btn">Depune o sesizare</a>
         </div>
-        <div class="side-widget">
+        <div class="side-widget" id="categorii-widget">
             <div class="side-widget-title">Categorii</div>
-            <ul class="side-links">
-                <li><a href="#">Anunțuri (1)</a></li>
-                <li><a href="#">Campanii (1)</a></li>
-                <li><a href="#">Recrutare (1)</a></li>
+            <ul class="side-links" id="categorii-list">
+                <li><a href="#" onclick="filtreaza('toate');return false;">Toate știrile</a></li>
             </ul>
         </div>
     </aside>
@@ -97,5 +68,52 @@
     </div>
     <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 D.I.A.S. — Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div>
 </footer>
+
+<script>
+const GITHUB_TOKEN = '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';
+const GITHUB_REPO  = 'diasromania/dias_site';
+const JSON_FILE    = 'stiri.json';
+
+let toateStirile = [];
+
+async function incarcaStiri() {
+    try {
+        const r = await fetch(`https://raw.githubusercontent.com/${GITHUB_REPO}/main/${JSON_FILE}?t=${Date.now()}`);
+        toateStirile = await r.json();
+        afiseazaStiri(toateStirile);
+        construiesteCateg();
+    } catch(e) {
+        document.getElementById('stiri-container').innerHTML = '<p style="color:#888;">Nu s-au putut încărca știrile.</p>';
+    }
+}
+
+function afiseazaStiri(stiri) {
+    const el = document.getElementById('stiri-container');
+    if (!stiri.length) { el.innerHTML = '<p style="color:#888;">Nu există știri momentan.</p>'; return; }
+    el.innerHTML = stiri.map(s => `
+        <article class="article">
+            <div class="article-meta">
+                <span class="article-date">${s.data}</span>
+                <span class="article-cat">${s.categorie}</span>
+            </div>
+            <h3 class="article-title">${s.titlu}</h3>
+            <p>${s.continut}</p>
+        </article>
+    `).join('');
+}
+
+function construiesteCateg() {
+    const cats = [...new Set(toateStirile.map(s => s.categorie))];
+    const ul = document.getElementById('categorii-list');
+    ul.innerHTML = `<li><a href="#" onclick="filtreaza('toate');return false;">Toate (${toateStirile.length})</a></li>` +
+        cats.map(c => `<li><a href="#" onclick="filtreaza('${c}');return false;">${c} (${toateStirile.filter(s=>s.categorie===c).length})</a></li>`).join('');
+}
+
+function filtreaza(cat) {
+    afiseazaStiri(cat === 'toate' ? toateStirile : toateStirile.filter(s => s.categorie === cat));
+}
+
+incarcaStiri();
+</script>
 </body>
 </html>
