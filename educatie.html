@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Educație digitală – D.I.A.S.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Open Sans', sans-serif; margin: 0; background: #f5f7fa; color: #222; }
+    .tricolor-bar { height: 6px; background: linear-gradient(to right, #002B7F 33.3%, #FCD116 33.3% 66.6%, #CE1126 66.6%); }
+    header { background: #002B7F; color: #fff; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .logo-area { display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+    .logo-icon { width: 52px; height: 52px; background: #FCD116; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; color: #002B7F; }
+    .logo-text h1 { margin: 0; font-size: 1.4rem; letter-spacing: 2px; }
+    .logo-text p { margin: 0; font-size: 0.75rem; opacity: .8; }
+    nav { display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 0; }
+    nav a { color: #fff; text-decoration: none; padding: 7px 13px; border-radius: 4px; font-size: 0.9rem; transition: background .2s; }
+    nav a:hover, nav a.active { background: rgba(255,255,255,0.15); }
+    nav a.nav-report { background: #CE1126; border-radius: 4px; }
+    nav a.nav-report:hover { background: #a50e1e; }
+    /* HERO */
+    .hero { background: linear-gradient(135deg, #002B7F 0%, #1a4fa8 60%, #0d47a1 100%); color: #fff; padding: 60px 2rem 50px; text-align: center; }
+    .hero h2 { font-size: 2.2rem; margin: 0 0 14px; }
+    .hero p { font-size: 1.1rem; opacity: .88; max-width: 680px; margin: 0 auto; }
+    /* LAYOUT */
+    .page-wrap { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; }
+    @media(max-width:900px){ .page-wrap { grid-template-columns: 1fr; } }
+    .section-title { font-size: 1.4rem; font-weight: 700; color: #002B7F; border-bottom: 3px solid #FCD116; padding-bottom: 8px; margin: 0 0 1.4rem; }
+    /* GHIDURI GRID */
+    .ghid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 2.5rem; }
+    @media(max-width:760px){ .ghid-grid { grid-template-columns: repeat(2,1fr); } }
+    @media(max-width:480px){ .ghid-grid { grid-template-columns: 1fr; } }
+    .ghid-card { background: #fff; border-radius: 12px; padding: 1.6rem 1.3rem; box-shadow: 0 2px 12px rgba(0,0,0,.08); text-align: center; transition: transform .2s, box-shadow .2s; }
+    .ghid-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,43,127,.13); }
+    .ghid-card .g-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .ghid-card h3 { margin: 0 0 8px; color: #002B7F; font-size: 1rem; }
+    .ghid-card p { margin: 0 0 14px; font-size: 0.86rem; color: #555; line-height: 1.6; }
+    .btn-ghid { display: inline-block; background: #002B7F; color: #fff; padding: 7px 18px; border-radius: 5px; font-size: 0.85rem; text-decoration: none; transition: background .2s; }
+    .btn-ghid:hover { background: #1a4fa8; }
+    /* QUIZ */
+    .quiz-box { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.08); margin-bottom: 2.5rem; }
+    .quiz-box h2 { margin: 0 0 8px; color: #002B7F; }
+    .quiz-box .quiz-sub { color: #666; font-size: 0.9rem; margin-bottom: 1.4rem; }
+    .progress-bar-wrap { background: #e0e0e0; border-radius: 20px; height: 10px; margin-bottom: 1.2rem; }
+    .progress-bar { height: 10px; border-radius: 20px; background: linear-gradient(to right, #002B7F, #1565c0); transition: width .4s; }
+    .quiz-question-label { font-size: 0.82rem; color: #888; margin-bottom: 4px; }
+    .quiz-question { font-size: 1.05rem; font-weight: 600; color: #111; margin-bottom: 1.2rem; line-height: 1.5; }
+    .quiz-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1rem; }
+    .quiz-option { background: #f0f4ff; border: 2px solid #c5d3f0; border-radius: 8px; padding: 11px 16px; cursor: pointer; font-size: 0.92rem; transition: all .2s; text-align: left; }
+    .quiz-option:hover { background: #dce8ff; border-color: #002B7F; }
+    .quiz-option.correct { background: #e6f9ed; border-color: #1a7a3a; color: #1a7a3a; font-weight: 600; }
+    .quiz-option.wrong { background: #fde8e8; border-color: #CE1126; color: #CE1126; }
+    .quiz-explanation { background: #e8f4fd; border-left: 4px solid #1565c0; border-radius: 6px; padding: 12px 16px; font-size: 0.88rem; margin-bottom: 1rem; display: none; line-height: 1.6; }
+    .btn-next { background: #002B7F; color: #fff; border: none; padding: 10px 26px; border-radius: 6px; font-size: 0.95rem; cursor: pointer; transition: background .2s; }
+    .btn-next:hover { background: #1a4fa8; }
+    .quiz-result { text-align: center; padding: 1.5rem; }
+    .quiz-result .score-big { font-size: 3.5rem; font-weight: 700; color: #002B7F; }
+    .quiz-result p { font-size: 1rem; color: #555; margin: 8px 0; }
+    .btn-retry { background: #FCD116; color: #002B7F; border: none; padding: 10px 26px; border-radius: 6px; font-size: 0.95rem; font-weight: 700; cursor: pointer; margin-top: 10px; }
+    /* SIMULATOR PHISHING */
+    .sim-box { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,.08); margin-bottom: 2.5rem; }
+    .sim-box h2 { margin: 0 0 6px; color: #002B7F; }
+    .sim-box .sim-sub { color: #666; font-size: 0.9rem; margin-bottom: 1.4rem; }
+    .email-fake { border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; font-size: 0.88rem; max-width: 680px; }
+    .email-header { background: #f5f5f5; padding: 12px 16px; border-bottom: 1px solid #e0e0e0; }
+    .email-field { display: flex; gap: 8px; margin-bottom: 4px; font-size: 0.85rem; }
+    .email-field .lbl { color: #888; min-width: 80px; }
+    .email-field .val { color: #222; font-weight: 500; }
+    .email-field .danger { color: #CE1126; font-weight: 700; }
+    .email-body { padding: 20px 22px; line-height: 1.7; }
+    .email-body .bank-logo { font-size: 1.6rem; font-weight: 700; color: #003087; border: 2px solid #003087; display: inline-block; padding: 4px 12px; border-radius: 4px; margin-bottom: 14px; }
+    .email-body .btn-fake { display: inline-block; background: #CE1126; color: #fff; padding: 10px 24px; border-radius: 5px; text-decoration: none; font-weight: 700; margin: 14px 0; cursor: default; }
+    .email-body .small-text { font-size: 0.78rem; color: #999; margin-top: 16px; }
+    .btn-show-hints { background: #FCD116; color: #002B7F; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; cursor: pointer; font-size: 0.95rem; margin-top: 1rem; }
+    .hints-list { display: none; margin-top: 1.2rem; }
+    .hint-item { display: flex; align-items: flex-start; gap: 10px; background: #fff3cd; border-left: 4px solid #e6a817; border-radius: 6px; padding: 10px 14px; margin-bottom: 8px; font-size: 0.88rem; line-height: 1.5; }
+    .hint-item .hi { font-size: 1.2rem; }
+    /* SIDEBAR */
+    .sidebar-widget { background: #fff; border-radius: 10px; padding: 1.3rem; box-shadow: 0 2px 10px rgba(0,0,0,.07); margin-bottom: 1.4rem; }
+    .sidebar-widget h4 { margin: 0 0 10px; font-size: 0.98rem; color: #002B7F; border-bottom: 2px solid #FCD116; padding-bottom: 6px; }
+    .sidebar-widget ul { margin: 0; padding: 0 0 0 1.1rem; }
+    .sidebar-widget ul li { font-size: 0.87rem; margin-bottom: 7px; line-height: 1.5; }
+    .sidebar-widget a { color: #002B7F; text-decoration: none; }
+    .sidebar-widget a:hover { text-decoration: underline; }
+    .target-group { font-weight: 700; color: #002B7F; font-size: 0.88rem; margin: 12px 0 5px; }
+    footer { background: #002B7F; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    footer p { margin: 4px 0; font-size: 0.85rem; opacity: .8; }
+    footer a { color: #FCD116; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="tricolor-bar"></div>
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">D.I.A.S</div>
+      <div class="logo-text">
+        <h1>D.I.A.S.</h1>
+        <p>Digitalizare · Informare · Apărare · Siguranță</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Acasă</a>
+      <a href="prezentare.html">Prezentare</a>
+      <a href="educatie.html" class="active">Educație</a>
+      <a href="comunitate.html">Comunitate</a>
+      <a href="stiri.html">Știri</a>
+      <a href="contact.html">Contact</a>
+      <a href="raportare.html" class="nav-report">🚨 Raportare</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Înveți. Te protejezi. Acționezi.</h2>
+    <p>Resurse practice de educație digitală pentru cetățeni, elevi, părinți și profesori. Cunoașterea este primul scut împotriva amenințărilor online.</p>
+  </div>
+
+  <div class="page-wrap">
+    <main>
+      <!-- GHIDURI -->
+      <h2 class="section-title">📚 Ghiduri de securitate digitală</h2>
+      <div class="ghid-grid">
+        <div class="ghid-card">
+          <div class="g-icon">🎣</div>
+          <h3>Cum recunoști phishing-ul</h3>
+          <p>Înveți să identifici emailuri, SMS-uri și site-uri false care încearcă să-ți fure datele personale sau financiare.</p>
+          <a href="#simulator" class="btn-ghid">Citește ghidul</a>
+        </div>
+        <div class="ghid-card">
+          <div class="g-icon">🔑</div>
+          <h3>Siguranța parolelor</h3>
+          <p>Cum creezi parole puternice, de ce să folosești un manager de parole și cum activezi autentificarea în doi pași (2FA).</p>
+          <a href="#quiz" class="btn-ghid">Testează-te</a>
+        </div>
+        <div class="ghid-card">
+          <div class="g-icon">🛡️</div>
+          <h3>Protecția datelor personale</h3>
+          <p>Ce date sunt sensibile, cum le protejezi online și ce drepturi ai conform GDPR ca cetățean european.</p>
+          <a href="raportare.html" class="btn-ghid">Citește ghidul</a>
+        </div>
+        <div class="ghid-card">
+          <div class="g-icon">😢</div>
+          <h3>Bullying online</h3>
+          <p>Recunoaște formele de cyberbullying, cum răspunzi, cum raportezi și unde găsești ajutor dacă ești victimă.</p>
+          <a href="raportare.html" class="btn-ghid">Citește ghidul</a>
+        </div>
+        <div class="ghid-card">
+          <div class="g-icon">📱</div>
+          <h3>Siguranța pe rețele sociale</h3>
+          <p>Setări de confidențialitate, cum eviți capcanele din social media și cum gestionezi identitatea digitală.</p>
+          <a href="raportare.html" class="btn-ghid">Citește ghidul</a>
+        </div>
+        <div class="ghid-card">
+          <div class="g-icon">👶</div>
+          <h3>Securitatea copiilor online</h3>
+          <p>Ghid pentru părinți: monitorizare, control parental, conversații despre pericole online și vârste recomandate.</p>
+          <a href="raportare.html" class="btn-ghid">Citește ghidul</a>
+        </div>
+      </div>
+
+      <!-- QUIZ -->
+      <div class="quiz-box" id="quiz">
+        <h2>🧠 Quiz de securitate digitală</h2>
+        <p class="quiz-sub">Testează-ți cunoștințele cu 5 scenarii reale. Alege răspunsul corect și citește explicația!</p>
+        <div id="quiz-container">
+          <div class="progress-bar-wrap"><div class="progress-bar" id="quiz-progress" style="width:0%"></div></div>
+          <div class="quiz-question-label" id="q-label">Întrebarea 1 din 5</div>
+          <div class="quiz-question" id="q-text"></div>
+          <div class="quiz-options" id="q-options"></div>
+          <div class="quiz-explanation" id="q-explanation"></div>
+          <button class="btn-next" id="btn-next" style="display:none">Următoarea întrebare →</button>
+        </div>
+        <div class="quiz-result" id="quiz-result" style="display:none">
+          <div class="score-big" id="score-display"></div>
+          <p id="score-msg"></p>
+          <p style="font-size:0.85rem;color:#888">Revizuiește ghidurile de mai sus pentru a-ți consolida cunoștințele.</p>
+          <button class="btn-retry" onclick="startQuiz()">Încearcă din nou 🔄</button>
+        </div>
+      </div>
+
+      <!-- SIMULATOR PHISHING -->
+      <div class="sim-box" id="simulator">
+        <h2>🎯 Simulator de phishing</h2>
+        <p class="sim-sub">Analizează emailul de mai jos și încearcă să identifici semnele că este o tentativă de phishing. Apasă butonul pentru a vedea toate indiciile.</p>
+        <div class="email-fake">
+          <div class="email-header">
+            <div class="email-field"><span class="lbl">De la:</span><span class="val danger">securitate@bt-verificare-cont.ro</span></div>
+            <div class="email-field"><span class="lbl">Către:</span><span class="val">utilizator@email.ro</span></div>
+            <div class="email-field"><span class="lbl">Subiect:</span><span class="val danger">⚠️ URGENT: Contul dvs. BT a fost suspendat – Acțiune necesară în 24h</span></div>
+            <div class="email-field"><span class="lbl">Data:</span><span class="val">Luni, 12 Mai 2026, 03:47</span></div>
+          </div>
+          <div class="email-body">
+            <div class="bank-logo">Banca Transilvania</div>
+            <p>Stimate client,</p>
+            <p>Sistemul nostru automat de securitate a detectat <strong>activitate suspectă</strong> în contul dvs. bancar. Din motive de securitate, accesul la contul dvs. a fost <strong>temporar restricționat</strong>.</p>
+            <p>Pentru a debloca contul și a evita blocarea definitivă, trebuie să vă <strong>verificați identitatea în maximum 24 de ore</strong> introducând datele dvs. de acces:</p>
+            <a class="btn-fake">🔒 Verifică-ți contul acum</a>
+            <p>Va trebui să furnizați: <strong>numărul cardului, PIN-ul, parola de internet banking și codul primit prin SMS</strong>.</p>
+            <p>Dacă nu efectuați verificarea în termenul indicat, contul dvs. va fi blocat permanent și va trebui să vă prezentați fizic la o sucursală.</p>
+            <p>Cu stimă,<br/><strong>Departamentul de Securitate BT</strong><br/>Banca Transilvania S.A.</p>
+            <p class="small-text">Dacă nu ați solicitat această verificare, ignorați acest mesaj. © 2026 Banca Transilvania. Sediu: bt-verificare-cont.ro/securitate</p>
+          </div>
+        </div>
+        <button class="btn-show-hints" onclick="toggleHints()">🔍 Arată indiciile de phishing</button>
+        <div class="hints-list" id="hints-list">
+          <div class="hint-item"><span class="hi">🚩</span><span><strong>Domeniu fals:</strong> Adresa expeditorului este <em>bt-verificare-cont.ro</em> – nu este domeniul oficial al Băncii Transilvania (banca-transilvania.ro sau bt.ro). Băncile reale nu folosesc niciodată subdomenii sau domenii alternative.</span></div>
+          <div class="hint-item"><span class="hi">🚩</span><span><strong>Ora de trimitere suspectă:</strong> Emailul a fost trimis la <em>03:47 dimineața</em>. Comunicările oficiale ale băncilor sunt trimise în orele de program.</span></div>
+          <div class="hint-item"><span class="hi">🚩</span><span><strong>Urgență artificială:</strong> Fraze ca „<em>24 de ore</em>", „<em>blocat permanent</em>", „<em>acțiune necesară URGENT</em>" sunt tehnici clasice de manipulare psihologică prin presiune temporală.</span></div>
+          <div class="hint-item"><span class="hi">🚩</span><span><strong>Cerere de PIN și parolă:</strong> Nicio bancă legitimă nu cere niciodată PIN-ul, parola completă sau coduri SMS prin email. Acestea sunt date strict confidențiale.</span></div>
+          <div class="hint-item"><span class="hi">🚩</span><span><strong>Link suspect în subsol:</strong> Footer-ul conține <em>bt-verificare-cont.ro/securitate</em> – nu este site-ul oficial al băncii. Verifică întotdeauna URL-ul complet.</span></div>
+          <div class="hint-item"><span class="hi">🚩</span><span><strong>Amenințare cu blocare permanentă:</strong> Băncile nu blochează conturi permanent prin email fără contact prealabil. Această amenințare este menită să te facă să acționezi fără să gândești.</span></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="sidebar-widget">
+        <h4>👶 Resurse pentru copii</h4>
+        <div class="target-group">Sfaturi pentru elevi:</div>
+        <ul>
+          <li>Nu da parola nimănui, nici prietenilor tăi cei mai buni.</li>
+          <li>Dacă cineva te deranjează online, spune unui adult de încredere.</li>
+          <li>Nu posta poze cu adresa sau școala ta.</li>
+          <li>Un prieten online nu este același cu un prieten în realitate.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>👨‍👩‍👧 Resurse pentru părinți</h4>
+        <ul>
+          <li>Activați controlul parental pe dispozitivele copiilor.</li>
+          <li>Vorbiți deschis despre pericolele online fără să creați panică.</li>
+          <li>Cunoașteți aplicațiile și platformele pe care le folosesc copiii.</li>
+          <li>Stabiliți reguli clare pentru timpul petrecut online.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>👩‍🏫 Resurse pentru profesori</h4>
+        <ul>
+          <li>Integrați lecții de siguranță digitală în orele de dirigenție.</li>
+          <li>Folosiți simulatoarele D.I.A.S. ca exerciții interactive în clasă.</li>
+          <li>Raportați incidentele de cyberbullying conform procedurilor școlii.</li>
+          <li>Descărcați materialele educaționale D.I.A.S. (licență CC)</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>🔗 Link-uri utile</h4>
+        <ul>
+          <li><a href="https://cert.ro" target="_blank">cert.ro – CERT-RO</a></li>
+          <li><a href="https://dnsc.ro" target="_blank">dnsc.ro – DNSC</a></li>
+          <li><a href="https://sigur.info" target="_blank">sigur.info – Siguranță online</a></li>
+          <li><a href="raportare.html">Raportează un incident D.I.A.S.</a></li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p><strong>D.I.A.S.</strong> – Digitalizare · Informare · Apărare · Siguranță</p>
+    <p>Proiect civic pentru siguranța digitală a cetățenilor români</p>
+    <p><a href="termeni.html">Termeni și condiții</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · <a href="contact.html">Contact</a></p>
+    <p style="margin-top:10px;opacity:.6;font-size:.8rem;">© 2026 D.I.A.S. – Conținut disponibil sub licență Creative Commons BY-NC-SA 4.0</p>
+  </footer>
+
+  <script>
+    // ===== QUIZ DATA =====
+    const quizData = [
+      {
+        question: "Primești un email de la „paypal-securitate.ro" care îți cere să îți confirmi parola pentru că contul a fost compromis. Ce faci?",
+        options: [
+          "A. Dai click pe linkul din email și introduci parola – e urgent.",
+          "B. Ignori emailul și verifici direct contul accesând paypal.com din browser.",
+          "C. Răspunzi la email cerând mai multe detalii."
+        ],
+        correct: 1,
+        explanation: "✅ Corect! „paypal-securitate.ro" nu este domeniul oficial PayPal. Niciodată nu accesa linkuri din emailuri urgente – mergi direct pe site-ul oficial tastând adresa în browser. Aceasta este o tentativă clasică de phishing."
+      },
+      {
+        question: "Care dintre aceste parole este cea mai sigură?",
+        options: [
+          "A. parola123",
+          "B. Tr@f!c-Semafór_Mov#2026",
+          "C. MariaPop1985"
+        ],
+        correct: 1,
+        explanation: "✅ Corect! „Tr@f!c-Semafór_Mov#2026" este cea mai sigură – are caractere speciale, cifre, litere mari și mici, caractere diacritice și peste 20 de caractere. Parolele bazate pe date personale (naștere, nume) sunt ușor de ghicit."
+      },
+      {
+        question: "Un coleg de clasă trimite mesaje răutăcioase și umilitoare despre tine pe Instagram, vizibile pentru toți. Ce reprezintă aceasta și ce trebuie să faci?",
+        options: [
+          "A. Este o glumă normală, nu trebuie să faci nimic.",
+          "B. Este cyberbullying – trebuie raportat platformei și unui adult de încredere.",
+          "C. Răspunzi cu același tip de mesaje ca să te aperi."
+        ],
+        correct: 1,
+        explanation: "✅ Corect! Aceasta este o formă de cyberbullying. Trebuie să raportezi comportamentul platformei (Instagram are butoane de raportare), să salvezi dovezile (capturi de ecran) și să spui unui adult de încredere sau unui consilier școlar."
+      },
+      {
+        question: "Ce este autentificarea în doi pași (2FA / Two-Factor Authentication)?",
+        options: [
+          "A. O metodă de a crea parole cu două cuvinte diferite.",
+          "B. O confirmare a identității printr-un al doilea factor (cod SMS, app autentificator) în plus față de parolă.",
+          "C. Conectarea la același cont de pe două dispozitive diferite simultan."
+        ],
+        correct: 1,
+        explanation: "✅ Corect! 2FA adaugă un strat suplimentar de securitate: chiar dacă cineva îți fură parola, nu poate accesa contul fără al doilea factor (ex: codul din SMS sau din aplicația Google Authenticator). Activează 2FA oriunde este disponibil!"
+      },
+      {
+        question: "Primești un mesaj pe WhatsApp: „Felicitări! Ai câștigat un iPhone 16 Pro! Apasă aici pentru a-ți revendica premiul și introdu datele cardului pentru taxele de transport." Ce este acest mesaj?",
+        options: [
+          "A. Un concurs legitim – merită să încerci, nu ai nimic de pierdut.",
+          "B. O tentativă de escrocherie (scam) – nu dai click și nu furnizezi nicio dată.",
+          "C. Un mesaj trimis din greșeală, poți răspunde să clarifici situația."
+        ],
+        correct: 1,
+        explanation: "✅ Corect! Acesta este un scam clasic. Nu ai participat la niciun concurs, nu există niciun premiu real. Scopul este să obțină datele cardului tău sau să instaleze malware. Șterge mesajul și blochează expeditorul. Raportează la D.I.A.S. sau DNSC!"
+      }
+    ];
+
+    let currentQ = 0;
+    let score = 0;
+    let answered = false;
+
+    function startQuiz() {
+      currentQ = 0;
+      score = 0;
+      answered = false;
+      document.getElementById('quiz-result').style.display = 'none';
+      document.getElementById('quiz-container').style.display = 'block';
+      showQuestion();
+    }
+
+    function showQuestion() {
+      answered = false;
+      const q = quizData[currentQ];
+      document.getElementById('q-label').textContent = 'Întrebarea ' + (currentQ + 1) + ' din ' + quizData.length;
+      document.getElementById('q-text').textContent = q.question;
+      document.getElementById('quiz-progress').style.width = (currentQ / quizData.length * 100) + '%';
+
+      const optDiv = document.getElementById('q-options');
+      optDiv.innerHTML = '';
+      q.options.forEach(function(opt, i) {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-option';
+        btn.textContent = opt;
+        btn.onclick = function() { selectAnswer(i); };
+        optDiv.appendChild(btn);
+      });
+
+      document.getElementById('q-explanation').style.display = 'none';
+      document.getElementById('q-explanation').textContent = '';
+      document.getElementById('btn-next').style.display = 'none';
+    }
+
+    function selectAnswer(idx) {
+      if (answered) return;
+      answered = true;
+      const q = quizData[currentQ];
+      const opts = document.querySelectorAll('.quiz-option');
+
+      opts.forEach(function(btn, i) {
+        btn.style.pointerEvents = 'none';
+        if (i === q.correct) btn.classList.add('correct');
+        else if (i === idx && idx !== q.correct) btn.classList.add('wrong');
+      });
+
+      if (idx === q.correct) score++;
+
+      const expl = document.getElementById('q-explanation');
+      expl.textContent = q.explanation;
+      expl.style.display = 'block';
+
+      const btnNext = document.getElementById('btn-next');
+      btnNext.style.display = 'inline-block';
+      if (currentQ === quizData.length - 1) {
+        btnNext.textContent = 'Vezi rezultatul 🏆';
+      } else {
+        btnNext.textContent = 'Următoarea întrebare →';
+      }
+    }
+
+    document.getElementById('btn-next').onclick = function() {
+      currentQ++;
+      if (currentQ < quizData.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    };
+
+    function showResult() {
+      document.getElementById('quiz-container').style.display = 'none';
+      const res = document.getElementById('quiz-result');
+      res.style.display = 'block';
+      document.getElementById('score-display').textContent = score + ' / ' + quizData.length;
+      var msgs = ['Mai ai de studiat – revizuiește ghidurile de securitate!', 'Bine, dar mai e loc de îmbunătățit!', 'Bine! Continuă să înveți!', 'Foarte bine! Ești aproape expert!', 'Perfect! Ești un expert în securitate digitală! 🎉'];
+      document.getElementById('score-msg').textContent = msgs[score] || msgs[4];
+    }
+
+    // Start quiz on load
+    startQuiz();
+
+    // ===== SIMULATOR PHISHING =====
+    function toggleHints() {
+      var h = document.getElementById('hints-list');
+      var btn = document.querySelector('.btn-show-hints');
+      if (h.style.display === 'block') {
+        h.style.display = 'none';
+        btn.textContent = '🔍 Arată indiciile de phishing';
+      } else {
+        h.style.display = 'block';
+        btn.textContent = '🙈 Ascunde indiciile';
+      }
+    }
+  </script>
+</body>
+</html>

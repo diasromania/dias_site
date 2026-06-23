@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunitate — D.I.A.S.</title>
+    <meta name="description" content="Alătură-te comunității D.I.A.S. pe Discord, devino voluntar, abonează-te la alertele noastre și participă la evenimentele online de educație digitală.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .discord-box { display:flex;align-items:center;gap:24px;background:#5865F2;border-radius:4px;padding:28px;flex-wrap:wrap; }
+        .discord-icon { font-size:3.5rem;flex-shrink:0; }
+        .discord-text { flex:1;min-width:200px; }
+        .discord-text h3 { font-size:18px;font-weight:800;color:#fff;margin-bottom:6px; }
+        .discord-text p { color:rgba(255,255,255,0.85);font-size:14px;line-height:1.6;margin-bottom:0; }
+        .discord-btn { display:inline-block;padding:12px 28px;background:#fff;color:#5865F2;font-size:14px;font-weight:800;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .2s;flex-shrink:0; }
+        .discord-btn:hover { background:#f0f0ff;text-decoration:none;color:#5865F2; }
+        .discord-stats { display:flex;gap:24px;margin-top:14px;flex-wrap:wrap; }
+        .discord-stat-num { font-size:1.4rem;font-weight:800;color:#fff; }
+        .discord-stat-label { font-size:12px;color:rgba(255,255,255,0.7); }
+        .form-group { margin-bottom:16px; }
+        .form-label { display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:5px; }
+        .form-label span { color:var(--red); }
+        .form-input,.form-select,.form-textarea { width:100%;padding:9px 12px;border:1px solid var(--border);background:#fff;font-family:'Open Sans',sans-serif;font-size:13px;color:var(--text);border-radius:3px;transition:border-color .15s;outline:none; }
+        .form-input:focus,.form-select:focus,.form-textarea:focus { border-color:var(--blue);box-shadow:0 0 0 2px rgba(0,53,128,0.08); }
+        .form-textarea { resize:vertical;min-height:100px; }
+        .form-row { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+        .form-submit { padding:11px 28px;background:var(--blue);color:#fff;border:none;font-family:'Open Sans',sans-serif;font-size:14px;font-weight:700;border-radius:3px;cursor:pointer;transition:background .2s; }
+        .form-submit:hover { background:var(--blue2); }
+        .form-note { font-size:12px;color:var(--text3);margin-top:10px; }
+        .newsletter-box { background:linear-gradient(135deg,#002060,#003580);padding:28px;border-radius:4px;text-align:center; }
+        .newsletter-box h3 { font-size:17px;font-weight:800;color:#fff;margin-bottom:8px; }
+        .newsletter-box p { color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:18px; }
+        .newsletter-form { display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center; }
+        .newsletter-input { flex:1;min-width:200px;padding:10px 14px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.1);color:#fff;font-family:'Open Sans',sans-serif;font-size:13px;border-radius:3px;outline:none; }
+        .newsletter-input::placeholder { color:rgba(255,255,255,0.5); }
+        .newsletter-btn { padding:10px 22px;background:var(--gold);color:#1a1a1a;border:none;font-family:'Open Sans',sans-serif;font-size:13px;font-weight:700;border-radius:3px;cursor:pointer;transition:background .2s;white-space:nowrap; }
+        .newsletter-btn:hover { background:#e0941a; }
+        .evenimente-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+        .event-card { border:1px solid var(--border);background:var(--gray);padding:18px 16px;display:flex;flex-direction:column; }
+        .event-date-badge { display:inline-flex;flex-direction:column;align-items:center;background:var(--blue);color:#fff;padding:6px 12px;border-radius:3px;margin-bottom:12px;width:fit-content; }
+        .event-date-day { font-size:1.6rem;font-weight:800;line-height:1; }
+        .event-date-month { font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.85; }
+        .event-tag { display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:2px 8px;background:#e8f0fb;color:var(--blue);border-radius:2px;margin-bottom:8px; }
+        .event-title { font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.4; }
+        .event-desc { font-size:12px;color:var(--text2);line-height:1.6;flex:1;margin-bottom:14px; }
+        .event-meta { font-size:11px;color:var(--text3);margin-bottom:12px; }
+        .event-btn { display:block;text-align:center;padding:8px;background:var(--blue);color:#fff;font-size:12px;font-weight:700;border-radius:2px;text-decoration:none;transition:background .2s; }
+        .event-btn:hover { background:var(--blue2);text-decoration:none;color:#fff; }
+        .parteneri-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px; }
+        .partener-card { border:1px solid var(--border);background:var(--white);padding:18px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;transition:border-color .2s; }
+        .partener-card:hover { border-color:var(--blue); }
+        .partener-logo-ph { width:72px;height:72px;border-radius:50%;background:var(--blue-l);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:10px; }
+        .partener-name { font-size:13px;font-weight:700;color:var(--blue);margin-bottom:4px; }
+        .partener-type { font-size:11px;color:var(--text3); }
+        @media(max-width:900px){.evenimente-grid{grid-template-columns:1fr 1fr}.parteneri-grid{grid-template-columns:repeat(2,1fr)}.form-row{grid-template-columns:1fr}}
+        @media(max-width:600px){.evenimente-grid{grid-template-columns:1fr}.discord-box{flex-direction:column}}
+    </style>
+</head>
+<body>
+<div class="tricolor"><div class="tc-blue"></div><div class="tc-yellow"></div><div class="tc-red"></div></div>
+<header class="header"><div class="wrap header-inner"><a href="index.html" class="logo"><img src="assets/dias-logo.png" alt="D.I.A.S."><div class="logo-text"><div class="logo-name">D.I.A.S.</div><div class="logo-full">Detașamentul de Intervenție și Acțiuni Speciale</div><div class="logo-sub">Securitate digitală · Protecție online · România</div></div></a><div class="header-right"><a href="sesizare.html" class="header-sesizare">⚑ Sesizare urgentă</a></div></div></header>
+<nav class="nav"><div class="wrap nav-inner"><a href="index.html" class="nav-link">Acasă</a><a href="despre.html" class="nav-link">Prezentare</a><a href="educatie.html" class="nav-link">Educație</a><a href="comunitate.html" class="nav-link active">Comunitate</a><a href="stiri.html" class="nav-link">Știri</a><a href="contact.html" class="nav-link">Contact</a><a href="sesizare.html" class="nav-link">Raportare</a></div></nav>
+<div class="page-bar"><div class="wrap page-bar-inner"><a href="index.html">Acasă</a><span class="pb-sep">›</span><span>Comunitate</span></div></div>
+<section class="hero"><div class="hero-overlay"></div><div class="wrap hero-content"><div class="hero-badge">COMUNITATE D.I.A.S.</div><h1>Împreună suntem mai puternici</h1><p>Alătură-te comunității, devino voluntar și contribuie la un internet mai sigur.</p><div class="hero-btns"><a href="#voluntariat" class="hero-btn-primary">Devino voluntar</a><a href="#discord" class="hero-btn-sec">Intră pe Discord</a></div></div></section>
+<div class="wrap main-layout">
+<main class="main-content">
+<section class="content-block" id="discord">
+    <h2 class="block-title">💬 Comunitatea Discord</h2>
+    <p style="margin-bottom:16px;">Serverul nostru Discord este spațiul principal de comunicare al comunității D.I.A.S. Raportează incidente, cere sfaturi și fii la curent cu activitatea echipei.</p>
+    <div class="discord-box">
+        <div class="discord-icon">🎮</div>
+        <div class="discord-text">
+            <h3>Serverul oficial D.I.A.S.</h3>
+            <p>Canale dedicate pentru raportare incidente, sfaturi securitate, educație digitală și anunțuri oficiale.</p>
+            <div class="discord-stats">
+                <div class="discord-stat"><span class="discord-stat-num">150+</span><span class="discord-stat-label">Membri</span></div>
+                <div class="discord-stat"><span class="discord-stat-num">12</span><span class="discord-stat-label">Canale active</span></div>
+                <div class="discord-stat"><span class="discord-stat-num">24/7</span><span class="discord-stat-label">Monitorizare</span></div>
+            </div>
+        </div>
+        <a href="https://discord.gg/egsZMS3j5e" target="_blank" class="discord-btn">Alătură-te pe Discord</a>
+    </div>
+</section>
+
+<section class="content-block" id="voluntariat">
+    <h2 class="block-title">🤝 Program de voluntariat</h2>
+    <p style="margin-bottom:20px;">D.I.A.S. este condusă integral de voluntari. Completează formularul și te vom contacta în 5 zile lucrătoare.</p>
+    <form action="mailto:dias.contact.ro@gmail.com" method="post" enctype="text/plain" onsubmit="return confirmVoluntariat()">
+        <input type="hidden" name="subject" value="Aplicatie voluntariat D.I.A.S.">
+        <div class="form-row">
+            <div class="form-group"><label class="form-label">Nume și prenume <span>*</span></label><input type="text" name="Nume" class="form-input" placeholder="Ion Popescu" required></div>
+            <div class="form-group"><label class="form-label">Email <span>*</span></label><input type="email" name="Email" class="form-input" placeholder="email@exemplu.ro" required></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group"><label class="form-label">Vârsta <span>*</span></label><input type="number" name="Varsta" class="form-input" placeholder="17" min="14" max="99" required></div>
+            <div class="form-group"><label class="form-label">Competențe principale <span>*</span></label>
+                <select name="Competente" class="form-select" required>
+                    <option value="">— Selectează —</option>
+                    <option>Investigații digitale / OSINT</option>
+                    <option>Securitate cibernetică</option>
+                    <option>Educație și comunicare</option>
+                    <option>Design grafic / web</option>
+                    <option>Juridic / drept</option>
+                    <option>Gestionare social media</option>
+                    <option>Programare / IT</option>
+                    <option>Altele</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group"><label class="form-label">Motivația ta <span>*</span></label><textarea name="Motivatie" class="form-textarea" placeholder="De ce vrei să te alături D.I.A.S.? (minim 50 cuvinte)" required></textarea></div>
+        <button type="submit" class="form-submit">Trimite aplicația →</button>
+        <p class="form-note">* Câmpuri obligatorii. Datele procesate conform <a href="confidentialitate.html">Politicii de confidențialitate</a>.</p>
+    </form>
+</section>
+
+<section class="content-block" id="newsletter">
+    <h2 class="block-title">📧 Alertele D.I.A.S.</h2>
+    <div class="newsletter-box">
+        <h3>🔔 Abonează-te la alertele D.I.A.S.</h3>
+        <p>Fii primul care află despre amenințări cibernetice active și campanii de phishing.</p>
+        <form class="newsletter-form" action="mailto:dias.contact.ro@gmail.com" method="post" enctype="text/plain" onsubmit="return confirmNewsletter()">
+            <input type="hidden" name="subject" value="Abonare newsletter D.I.A.S.">
+            <input type="email" name="Email newsletter" class="newsletter-input" placeholder="adresa@email.ro" required>
+            <button type="submit" class="newsletter-btn">Abonează-mă</button>
+        </form>
+    </div>
+</section>
+
+<section class="content-block" id="evenimente">
+    <h2 class="block-title">📅 Evenimente online</h2>
+    <div class="evenimente-grid">
+        <div class="event-card">
+            <div class="event-date-badge"><span class="event-date-day">15</span><span class="event-date-month">Iulie 2026</span></div>
+            <span class="event-tag">Webinar</span>
+            <div class="event-title">Siguranța online pentru elevi — Ghid practic</div>
+            <div class="event-desc">Sesiune interactivă pentru elevi de gimnaziu și liceu. Phishing, bullying online, parole sigure și cum raportezi incidente.</div>
+            <div class="event-meta">📍 Online · ⏱ 60 min · 👥 Max 50 participanți</div>
+            <a href="mailto:dias.contact.ro@gmail.com?subject=Inscriere Webinar 15 Iulie 2026" class="event-btn">Înregistrează-te</a>
+        </div>
+        <div class="event-card">
+            <div class="event-date-badge"><span class="event-date-day">22</span><span class="event-date-month">Aug 2026</span></div>
+            <span class="event-tag">Atelier</span>
+            <div class="event-title">Cum recunoști dezinformarea — Atelier pentru adulți</div>
+            <div class="event-desc">Atelier practic despre știri false, manipulare online și verificarea surselor. Exerciții cu exemple reale.</div>
+            <div class="event-meta">📍 Online · ⏱ 90 min · 👥 Max 30 participanți</div>
+            <a href="mailto:dias.contact.ro@gmail.com?subject=Inscriere Atelier 22 Aug 2026" class="event-btn">Înregistrează-te</a>
+        </div>
+        <div class="event-card">
+            <div class="event-date-badge"><span class="event-date-day">10</span><span class="event-date-month">Sept 2026</span></div>
+            <span class="event-tag">Training</span>
+            <div class="event-title">OSINT pentru investigații — Tehnici avansate</div>
+            <div class="event-desc">Sesiune avansată pentru voluntarii D.I.A.S. Instrumente OSINT și studii de caz reale anonimizate.</div>
+            <div class="event-meta">📍 Discord · ⏱ 2h · 👥 Voluntari D.I.A.S.</div>
+            <a href="mailto:dias.contact.ro@gmail.com?subject=Inscriere Training OSINT Sept 2026" class="event-btn">Solicită acces</a>
+        </div>
+    </div>
+</section>
+
+<section class="content-block" id="parteneri">
+    <h2 class="block-title">🤝 Parteneri și organizații asociate</h2>
+    <div class="parteneri-grid">
+        <div class="partener-card"><div class="partener-logo-ph">🛡️</div><div class="partener-name">DNSC</div><div class="partener-type">Autoritate națională</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">🔒</div><div class="partener-name">CERT-RO</div><div class="partener-type">Cybersecurity</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">👮</div><div class="partener-name">Poliția Română</div><div class="partener-type">Autoritate de stat</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">🎓</div><div class="partener-name">UBB Cluj-Napoca</div><div class="partener-type">Instituție academică</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">🏛️</div><div class="partener-name">Universitatea București</div><div class="partener-type">Instituție academică</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">🌐</div><div class="partener-name">Sigur.info</div><div class="partener-type">ONG / Educație</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">💻</div><div class="partener-name">Bitdefender</div><div class="partener-type">Cybersecurity</div></div>
+        <div class="partener-card"><div class="partener-logo-ph">➕</div><div class="partener-name">Partener nou?</div><div class="partener-type"><a href="colaborari.html">Propune o colaborare</a></div></div>
+    </div>
+</section>
+</main>
+<aside class="sidebar">
+    <div class="side-widget urgent-widget"><div class="side-widget-title">⚑ Sesizare urgentă</div><p>Ai o problemă? Echipa D.I.A.S. răspunde în 24–48 ore.</p><a href="sesizare.html" class="side-btn">Raportează incident</a></div>
+    <div class="side-widget"><div class="side-widget-title">Contact</div><div class="side-info-row"><span class="si-label">Email</span><a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></div><div class="side-info-row"><span class="si-label">Discord</span><a href="https://discord.gg/egsZMS3j5e" target="_blank">discord.gg/egsZMS3j5e</a></div><div class="side-info-row"><span class="si-label">Urgențe</span><strong style="color:#b91c1c;">112</strong></div></div>
+    <div class="side-widget"><div class="side-widget-title">De ce să fii voluntar?</div><ul class="side-links"><li><a href="#voluntariat">Experiență practică în securitate</a></li><li><a href="#voluntariat">Contribui la protecția comunității</a></li><li><a href="#voluntariat">Acces la resurse exclusive</a></li><li><a href="#voluntariat">Rețea de profesioniști</a></li><li><a href="#voluntariat">Certificat de voluntariat</a></li></ul></div>
+    <div class="side-widget"><div class="side-widget-title">Resurse utile</div><ul class="side-links"><li><a href="educatie.html">Ghiduri educație digitală</a></li><li><a href="https://www.cert.ro" target="_blank">CERT-RO</a></li><li><a href="https://www.dnsc.ro" target="_blank">DNSC România</a></li><li><a href="colaborari.html">Colaborări instituționale</a></li></ul></div>
+</aside>
+</div>
+<footer class="footer"><div class="footer-top"><div class="wrap footer-top-inner"><div class="footer-brand"><img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo"><div><div class="footer-brand-name">D.I.A.S.</div><div class="footer-brand-sub">Detașamentul de Intervenție și Acțiuni Speciale<br>Securitate digitală · România</div></div></div><div class="footer-nav"><div class="footer-nav-title">Navigare</div><a href="index.html">Acasă</a><a href="despre.html">Prezentare</a><a href="educatie.html">Educație</a><a href="comunitate.html">Comunitate</a><a href="stiri.html">Știri</a><a href="contact.html">Contact</a></div><div class="footer-nav"><div class="footer-nav-title">Legal</div><a href="confidentialitate.html">Confidențialitate</a><a href="termeni.html">Termeni și condiții</a><a href="colaborari.html">Colaborări</a></div><div class="footer-nav"><div class="footer-nav-title">Mențiuni legale</div><p>D.I.A.S. este o organizație de voluntariat. Urgențe: <strong>112</strong>.</p></div></div></div><div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 D.I.A.S. — Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div></footer>
+<script>
+function confirmVoluntariat() { alert('Vei fi redirecționat către clientul de email. Dacă nu se deschide, trimite manual la dias.contact.ro@gmail.com cu subiectul "Aplicatie voluntariat D.I.A.S."'); return true; }
+function confirmNewsletter() { alert('Trimite emailul pentru a confirma abonarea. Îți mulțumim!'); return true; }
+</script>
+</body>
+</html>

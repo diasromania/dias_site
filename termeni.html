@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termeni și condiții – D.I.A.S.</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Open Sans', sans-serif; margin: 0; background: #f5f7fa; color: #222; }
+    .tricolor-bar { height: 6px; background: linear-gradient(to right, #002B7F 33.3%, #FCD116 33.3% 66.6%, #CE1126 66.6%); }
+    header { background: #002B7F; color: #fff; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .logo-area { display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+    .logo-icon { width: 52px; height: 52px; background: #FCD116; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; color: #002B7F; }
+    .logo-text h1 { margin: 0; font-size: 1.4rem; letter-spacing: 2px; }
+    .logo-text p { margin: 0; font-size: 0.75rem; opacity: .8; }
+    nav { display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 0; }
+    nav a { color: #fff; text-decoration: none; padding: 7px 13px; border-radius: 4px; font-size: 0.9rem; transition: background .2s; }
+    nav a:hover, nav a.active { background: rgba(255,255,255,0.15); }
+    nav a.nav-report { background: #CE1126; border-radius: 4px; }
+    nav a.nav-report:hover { background: #a50e1e; }
+    .hero { background: linear-gradient(135deg, #002B7F 0%, #1a4fa8 60%, #1565c0 100%); color: #fff; padding: 50px 2rem 40px; text-align: center; }
+    .hero h2 { font-size: 2rem; margin: 0 0 10px; }
+    .hero p { font-size: 0.95rem; opacity: .85; margin: 0; }
+    .page-wrap { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; display: grid; grid-template-columns: 1fr 300px; gap: 2rem; }
+    @media(max-width:900px){ .page-wrap { grid-template-columns: 1fr; } }
+    .meta-bar { background: #fff3cd; border-left: 4px solid #FCD116; padding: 10px 16px; border-radius: 6px; margin-bottom: 1.5rem; font-size: 0.88rem; }
+    /* TOC */
+    .toc { background: #fff; border-radius: 10px; padding: 1.4rem 1.8rem; box-shadow: 0 2px 10px rgba(0,0,0,.07); margin-bottom: 2rem; }
+    .toc h3 { margin: 0 0 10px; color: #002B7F; font-size: 1rem; }
+    .toc ol { margin: 0; padding-left: 1.3rem; }
+    .toc ol li { margin-bottom: 5px; }
+    .toc a { color: #002B7F; font-size: 0.89rem; text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    /* Sections */
+    .tc-section { background: #fff; border-radius: 10px; padding: 1.8rem; box-shadow: 0 2px 10px rgba(0,0,0,.07); margin-bottom: 1.5rem; }
+    .tc-section h2 { margin: 0 0 1rem; color: #002B7F; font-size: 1.15rem; padding-bottom: 8px; border-bottom: 2px solid #f0f0f0; }
+    .tc-section p, .tc-section li { line-height: 1.75; font-size: 0.92rem; }
+    .tc-section ul, .tc-section ol { padding-left: 1.3rem; }
+    .tc-section li { margin-bottom: 6px; }
+    /* Table */
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.88rem; }
+    th { background: #002B7F; color: #fff; padding: 8px 12px; text-align: left; }
+    td { padding: 8px 12px; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f7f9fc; }
+    /* Sidebar */
+    .sidebar-widget { background: #fff; border-radius: 10px; padding: 1.3rem; box-shadow: 0 2px 10px rgba(0,0,0,.07); margin-bottom: 1.4rem; }
+    .sidebar-widget h4 { margin: 0 0 10px; font-size: 0.98rem; color: #002B7F; border-bottom: 2px solid #FCD116; padding-bottom: 6px; }
+    .sidebar-widget ul { margin: 0; padding: 0 0 0 1.1rem; }
+    .sidebar-widget ul li { font-size: 0.87rem; margin-bottom: 7px; line-height: 1.5; }
+    .sidebar-widget a { color: #002B7F; text-decoration: none; }
+    .sidebar-widget a:hover { text-decoration: underline; }
+    .highlight-box { background: #e8f4fd; border-left: 4px solid #1565c0; border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 0.89rem; }
+    .warning-box { background: #fff3cd; border-left: 4px solid #e6a817; border-radius: 6px; padding: 12px 16px; margin: 12px 0; font-size: 0.89rem; }
+    footer { background: #002B7F; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
+    footer p { margin: 4px 0; font-size: 0.85rem; opacity: .8; }
+    footer a { color: #FCD116; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="tricolor-bar"></div>
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">D.I.A.S</div>
+      <div class="logo-text">
+        <h1>D.I.A.S.</h1>
+        <p>Digitalizare · Informare · Apărare · Siguranță</p>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Acasă</a>
+      <a href="prezentare.html">Prezentare</a>
+      <a href="educatie.html">Educație</a>
+      <a href="comunitate.html">Comunitate</a>
+      <a href="stiri.html">Știri</a>
+      <a href="contact.html">Contact</a>
+      <a href="raportare.html" class="nav-report">🚨 Raportare</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>📄 Termeni și condiții</h2>
+    <p>Versiunea 2.1 · Ultima actualizare: 01 Iunie 2026</p>
+  </div>
+
+  <div class="page-wrap">
+    <main>
+      <div class="meta-bar">
+        📅 <strong>Data actualizare:</strong> 01 Iunie 2026 &nbsp;|&nbsp; <strong>Versiunea:</strong> 2.1 &nbsp;|&nbsp; Vă rugăm să citiți cu atenție înainte de a utiliza platforma D.I.A.S.
+      </div>
+
+      <!-- TOC -->
+      <div class="toc">
+        <h3>📋 Cuprins</h3>
+        <ol>
+          <li><a href="#definitii">Definiții</a></li>
+          <li><a href="#utilizare">Utilizarea platformei</a></li>
+          <li><a href="#sesizari">Depunerea și gestionarea sesizărilor</a></li>
+          <li><a href="#raspundere">Limitarea răspunderii</a></li>
+          <li><a href="#proprietate">Proprietate intelectuală</a></li>
+          <li><a href="#minori">Utilizatori minori</a></li>
+          <li><a href="#conduita">Conduită și comportament acceptabil</a></li>
+          <li><a href="#modificari">Modificări ale termenilor</a></li>
+          <li><a href="#legislatie">Legislație aplicabilă</a></li>
+          <li><a href="#contact-tc">Contact</a></li>
+        </ol>
+      </div>
+
+      <!-- 1. Definitii -->
+      <div class="tc-section" id="definitii">
+        <h2>1. Definiții</h2>
+        <p>În sensul prezentului document, termenii de mai jos au următoarele semnificații:</p>
+        <table>
+          <tr><th>Termen</th><th>Definiție</th></tr>
+          <tr><td><strong>D.I.A.S.</strong></td><td>Proiectul civic „Digitalizare · Informare · Apărare · Siguranță", inițiativă non-profit de educație și siguranță digitală adresată cetățenilor din România.</td></tr>
+          <tr><td><strong>Platforma</strong></td><td>Ansamblul paginilor web, formularelor și resurselor educaționale disponibile sub domeniul/subdomeniile D.I.A.S., inclusiv funcționalitățile de raportare și educație.</td></tr>
+          <tr><td><strong>Utilizator</strong></td><td>Orice persoană fizică sau juridică care accesează și/sau utilizează Platforma, indiferent de scopul accesului.</td></tr>
+          <tr><td><strong>Sesizare</strong></td><td>Orice raport, reclamație, alertă sau informație transmisă de un Utilizator prin intermediul formularelor de raportare disponibile pe Platformă, referitoare la un incident de securitate cibernetică, fraudă online sau alt comportament ilegal în spațiul digital.</td></tr>
+          <tr><td><strong>Date cu caracter personal</strong></td><td>Orice informație referitoare la o persoană fizică identificată sau identificabilă, în conformitate cu Regulamentul (UE) 2016/679 (GDPR).</td></tr>
+          <tr><td><strong>Voluntar</strong></td><td>Persoana fizică care contribuie în mod benevol la activitățile D.I.A.S. (moderare, educație, suport tehnic), pe baza unui acord scris de voluntariat.</td></tr>
+          <tr><td><strong>Conținut</strong></td><td>Orice text, imagine, video, document sau alt material publicat pe Platformă de către echipa D.I.A.S. sau transmis de Utilizatori prin formulare.</td></tr>
+          <tr><td><strong>Incident digital</strong></td><td>Eveniment care afectează sau poate afecta securitatea, confidențialitatea sau integritatea datelor unui utilizator în spațiul online (ex: phishing, hacking, scam, cyberbullying).</td></tr>
+        </table>
+      </div>
+
+      <!-- 2. Utilizarea platformei -->
+      <div class="tc-section" id="utilizare">
+        <h2>2. Utilizarea platformei</h2>
+        <p><strong>2.1 Utilizare permisă</strong></p>
+        <ul>
+          <li>Accesarea conținutului educațional în scop personal sau didactic, cu respectarea drepturilor de autor.</li>
+          <li>Transmiterea sesizărilor referitoare la incidente digitale reale, cu bună credință.</li>
+          <li>Descărcarea și utilizarea materialelor educaționale publicate sub licență Creative Commons BY-NC-SA 4.0.</li>
+          <li>Participarea la quiz-uri, simulatoare și alte instrumente interactive de conștientizare.</li>
+          <li>Contactarea echipei D.I.A.S. în scopuri legitime (colaborare, voluntariat, sesizare).</li>
+        </ul>
+        <p><strong>2.2 Utilizare interzisă</strong></p>
+        <div class="warning-box">⚠️ Orice utilizare abuzivă poate atrage răspundere civilă și/sau penală conform legislației române în vigoare.</div>
+        <ul>
+          <li>Transmiterea de sesizări false, înșelătoare sau cu rea credință, care pot induce în eroare echipa sau autoritățile.</li>
+          <li>Utilizarea Platformei pentru activități ilegale, inclusiv spam, phishing, fraudă sau distribuție de malware.</li>
+          <li>Extragerea automată (scraping) a conținutului fără acordul scris al D.I.A.S.</li>
+          <li>Utilizarea comercială a materialelor D.I.A.S. fără autorizare prealabilă.</li>
+          <li>Tentativele de a compromite securitatea, disponibilitatea sau integritatea Platformei.</li>
+          <li>Publicarea sau transmiterea de conținut care incită la ură, violență sau discriminare.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Sesizari -->
+      <div class="tc-section" id="sesizari">
+        <h2>3. Depunerea și gestionarea sesizărilor</h2>
+        <p><strong>3.1 Caracterul voluntar</strong><br/>Transmiterea sesizărilor este voluntară și gratuită. D.I.A.S. nu este o autoritate publică și nu are putere de anchetă sau sancționare.</p>
+        <p><strong>3.2 Limitări</strong></p>
+        <ul>
+          <li>D.I.A.S. nu garantează soluționarea oricărei sesizări și nu are obligația de a răspunde fiecărui raport primit.</li>
+          <li>Sesizările sunt analizate de voluntari și, acolo unde este cazul, redirecționate către autoritățile competente (DNSC, CERT-RO, IGPR etc.).</li>
+          <li>Termenul de procesare poate varia; nu există un SLA garantat.</li>
+        </ul>
+        <p><strong>3.3 Confidențialitatea sesizărilor</strong></p>
+        <div class="highlight-box">🔒 Datele de identificare ale sesizanților sunt tratate cu strictă confidențialitate și nu sunt transmise unor terți fără consimțământul explicit al utilizatorului, cu excepția cazurilor prevăzute de lege.</div>
+        <p><strong>3.4 Sesizări false</strong><br/>Transmiterea cu intenție a unor sesizări false sau menite să obstrucționeze activitatea echipei D.I.A.S. poate constitui infracțiune conform Codului Penal (ex: art. 268 – inducerea în eroare a organelor judiciare, art. 326 – fals în declarații).</p>
+        <p><strong>3.5 Limitele intervenției D.I.A.S.</strong><br/>D.I.A.S. nu oferă asistență juridică, nu intervine direct în sisteme informatice și nu are atribuții de anchetă penală. Pentru situații de urgență, contactați direct 112 sau DNSC.</p>
+      </div>
+
+      <!-- 4. Raspundere -->
+      <div class="tc-section" id="raspundere">
+        <h2>4. Limitarea răspunderii</h2>
+        <ul>
+          <li>D.I.A.S. pune la dispoziție informații cu caracter educativ și informativ. Acestea nu constituie consultanță juridică, tehnică sau de securitate profesionistă.</li>
+          <li>Platforma este furnizată „ca atare" (as-is), fără garanții exprese sau implicite de disponibilitate neîntreruptă, acuratețe completă sau absență a erorilor.</li>
+          <li>D.I.A.S. nu răspunde pentru pierderile directe sau indirecte suferite ca urmare a utilizării sau imposibilității de utilizare a Platformei.</li>
+          <li>Link-urile externe sunt furnizate exclusiv pentru comoditate; D.I.A.S. nu controlează și nu răspunde de conținutul site-urilor terțe.</li>
+          <li>Utilizatorul este singurul responsabil pentru deciziile luate pe baza informațiilor de pe Platformă.</li>
+        </ul>
+      </div>
+
+      <!-- 5. Proprietate intelectuala -->
+      <div class="tc-section" id="proprietate">
+        <h2>5. Proprietate intelectuală</h2>
+        <p>Conținutul original publicat de D.I.A.S. (texte, grafice, logo-uri, materiale educaționale) este protejat prin dreptul de autor conform <strong>Legii nr. 8/1996 privind dreptul de autor și drepturile conexe</strong>.</p>
+        <ul>
+          <li>Materialele educaționale marcate CC BY-NC-SA 4.0 pot fi utilizate, adaptate și redistribuite în scop necomercial, cu atribuire și în aceleași condiții.</li>
+          <li>Logo-ul D.I.A.S. și identitatea vizuală sunt rezervate și nu pot fi utilizate fără acordul scris al echipei.</li>
+          <li>Conținutul transmis de Utilizatori prin formulare rămâne proprietatea acestora; prin transmitere, Utilizatorul acordă D.I.A.S. o licență neexclusivă de utilizare în scopul procesării sesizării.</li>
+        </ul>
+      </div>
+
+      <!-- 6. Minori -->
+      <div class="tc-section" id="minori">
+        <h2>6. Utilizatori minori</h2>
+        <div class="warning-box">⚠️ Conform art. 8 din Regulamentul GDPR (UE) 2016/679, vârsta minimă pentru prelucrarea datelor cu caracter personal fără consimțământul părintelui/tutorelui este de <strong>16 ani</strong> (conform opțiunii naționale adoptate de România).</div>
+        <ul>
+          <li>Utilizatorii cu vârsta sub 16 ani pot accesa conținutul educațional al Platformei, dar nu ar trebui să transmită date personale prin formulare fără acordul părintelui sau tutorelui legal.</li>
+          <li>D.I.A.S. nu colectează în mod intenționat date personale de la persoane sub 16 ani fără consimțământul părintelui.</li>
+          <li>Dacă un minor a transmis date fără consimțământul corespunzător, părintele/tutorele poate solicita ștergerea acestora la <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a>.</li>
+          <li>Platformele educaționale și quizurile sunt accesibile liber, fără colectare de date, pentru toate vârstele.</li>
+        </ul>
+      </div>
+
+      <!-- 7. Conduita -->
+      <div class="tc-section" id="conduita">
+        <h2>7. Conduită și comportament acceptabil</h2>
+        <p>Utilizatorii care interacționează cu D.I.A.S. (prin formulare, email, rețele sociale) se angajează să:</p>
+        <ul>
+          <li>Utilizeze un limbaj respectuos și decent în toate comunicările.</li>
+          <li>Nu hărțuiască, amenințe sau intimideze membrii echipei sau alți utilizatori.</li>
+          <li>Nu furnizeze informații false sau înșelătoare cu privire la identitate sau incidentele raportate.</li>
+          <li>Nu utilizeze Platforma pentru a desfășura activități comerciale neautorizate sau spam.</li>
+          <li>Respecte confidențialitatea informațiilor primite în cadrul colaborărilor cu D.I.A.S.</li>
+        </ul>
+        <p>D.I.A.S. își rezervă dreptul de a refuza procesarea sesizărilor sau de a bloca accesul utilizatorilor care încalcă aceste norme de conduită.</p>
+      </div>
+
+      <!-- 8. Modificari -->
+      <div class="tc-section" id="modificari">
+        <h2>8. Modificări ale termenilor</h2>
+        <ul>
+          <li>D.I.A.S. își rezervă dreptul de a modifica prezenții Termeni și condiții oricând, fără notificare prealabilă.</li>
+          <li>Modificările intră în vigoare la data publicării versiunii actualizate pe Platformă.</li>
+          <li>Continuarea utilizării Platformei după publicarea modificărilor constituie acceptarea tacită a noilor termeni.</li>
+          <li>Versiunea curentă este întotdeauna disponibilă la adresa: <strong>dias.ro/termeni</strong> (sau echivalent).</li>
+          <li>Versiunile anterioare pot fi solicitate prin email pentru referință istorică.</li>
+        </ul>
+        <div class="highlight-box">📌 Vă recomandăm să verificați periodic această pagină pentru a fi la curent cu eventualele modificări.</div>
+      </div>
+
+      <!-- 9. Legislatie -->
+      <div class="tc-section" id="legislatie">
+        <h2>9. Legislație aplicabilă</h2>
+        <p>Activitatea D.I.A.S. și prezenții Termeni sunt guvernate de legislația română și europeană aplicabilă, inclusiv, dar fără a se limita la:</p>
+        <ul>
+          <li><strong>Regulamentul (UE) 2016/679 (GDPR)</strong> – privind protecția persoanelor fizice în ceea ce privește prelucrarea datelor cu caracter personal.</li>
+          <li><strong>Legea nr. 190/2018</strong> – privind măsurile de punere în aplicare a GDPR la nivel național (România).</li>
+          <li><strong>Legea nr. 8/1996</strong> – privind dreptul de autor și drepturile conexe, cu modificările și completările ulterioare.</li>
+          <li><strong>Codul Penal al României (Legea nr. 286/2009)</strong> – în special titlul referitor la infracțiunile informatice (art. 360-366).</li>
+          <li><strong>Legea nr. 161/2003</strong> – privind unele măsuri pentru asigurarea transparenței în exercitarea demnităților publice, a funcțiilor publice și în mediul de afaceri, prevenirea și sancționarea corupției (Titlul III – prevenirea și combaterea criminalității informatice).</li>
+          <li><strong>Directiva NIS 2 (UE 2022/2555)</strong> – privind măsuri pentru un nivel comun ridicat de securitate cibernetică în Uniune, transpusă în legislația națională.</li>
+          <li><strong>ANSPDCP</strong> – Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal, organism cu atribuții de supraveghere și control în domeniul protecției datelor.</li>
+        </ul>
+        <p>Orice litigiu care decurge din utilizarea Platformei va fi soluționat pe cale amiabilă sau, dacă nu este posibil, de instanțele competente din România.</p>
+      </div>
+
+      <!-- 10. Contact -->
+      <div class="tc-section" id="contact-tc">
+        <h2>10. Contact</h2>
+        <p>Pentru orice întrebări, nelămuriri sau solicitări legate de prezenții Termeni și condiții, ne puteți contacta:</p>
+        <ul>
+          <li>📧 <strong>Email:</strong> <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></li>
+          <li>📋 <strong>Formular contact:</strong> <a href="contact.html">dias – pagina contact</a></li>
+          <li>🕐 <strong>Timp de răspuns:</strong> maximum 10 zile lucrătoare pentru solicitări legate de termeni și date personale.</li>
+        </ul>
+        <p>Pentru solicitări legate de datele personale (rectificare, ștergere, portabilitate), consultați <a href="confidentialitate.html">Politica de confidențialitate D.I.A.S.</a></p>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="sidebar-widget">
+        <h4>📂 Documente legale</h4>
+        <ul>
+          <li>📄 <a href="termeni.html"><strong>Termeni și condiții</strong> (curent)</a></li>
+          <li>🔒 <a href="confidentialitate.html">Politica de confidențialitate</a></li>
+          <li>🍪 <a href="cookies.html">Politica de cookies</a></li>
+          <li>🤝 <a href="colaborari.html">Politica de colaborare</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>📞 Contact pentru aspecte legale</h4>
+        <ul>
+          <li>📧 <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></li>
+          <li>📋 Subiect: „Termeni – [solicitare]"</li>
+          <li>🕐 Răspuns: max. 10 zile lucrătoare</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>🏛️ Autorități de supraveghere</h4>
+        <ul>
+          <li><a href="https://www.dataprotection.ro" target="_blank">ANSPDCP – Protecția datelor</a></li>
+          <li><a href="https://dnsc.ro" target="_blank">DNSC – Securitate cibernetică</a></li>
+          <li><a href="https://cert.ro" target="_blank">CERT-RO</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h4>ℹ️ Informații document</h4>
+        <ul>
+          <li><strong>Versiunea:</strong> 2.1</li>
+          <li><strong>Data:</strong> 01 Iunie 2026</li>
+          <li><strong>Limbă:</strong> Română</li>
+          <li><strong>Jurisdicție:</strong> România / UE</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p><strong>D.I.A.S.</strong> – Digitalizare · Informare · Apărare · Siguranță</p>
+    <p>Proiect civic pentru siguranța digitală a cetățenilor români</p>
+    <p><a href="termeni.html">Termeni și condiții</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · <a href="contact.html">Contact</a></p>
+    <p style="margin-top:10px;opacity:.6;font-size:.8rem;">© 2026 D.I.A.S. – Conținut disponibil sub licență Creative Commons BY-NC-SA 4.0</p>
+  </footer>
+</body>
+</html>
