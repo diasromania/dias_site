@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raportare Incident — D.I.A.S.</title>
+    <meta name="description" content="Raportează un incident de hărțuire, phishing, fraudă sau bullying online către D.I.A.S.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .incident-form { display: flex; flex-direction: column; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 6px; }
+        .form-group label { font-size: 13px; font-weight: 700; color: var(--text); }
+        .form-group label span.req { color: var(--red); }
+        .form-group input, .form-group select, .form-group textarea {
+            border: 1px solid var(--border); border-radius: 3px;
+            padding: 10px 12px; font-family: inherit; font-size: 14px;
+            color: var(--text); background: #fff; outline: none;
+            transition: border-color .2s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,53,128,0.08);
+        }
+        .form-group textarea { min-height: 120px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .form-hint { font-size: 12px; color: var(--text3); margin-top: 3px; }
+        .form-submit {
+            display: inline-block; padding: 12px 32px;
+            background: var(--blue); color: #fff;
+            font-size: 14px; font-weight: 700; border: none;
+            border-radius: 3px; cursor: pointer; transition: background .2s;
+            align-self: flex-start;
+        }
+        .form-submit:hover { background: var(--blue2); }
+        .form-submit:disabled { background: #aaa; cursor: not-allowed; }
+
+        /* Clasificare AI */
+        .ai-box {
+            display: none; border: 1px solid var(--border);
+            border-left: 4px solid var(--blue);
+            background: var(--gray); padding: 16px 18px;
+            border-radius: 3px; gap: 12px;
+        }
+        .ai-box.visible { display: flex; flex-direction: column; }
+        .ai-box-title { font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--blue); margin-bottom: 6px; }
+        .ai-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .ai-chip {
+            font-size: 12px; font-weight: 600; padding: 4px 12px;
+            border-radius: 20px; border: 1px solid;
+        }
+        .chip-critical { background: #fef2f2; border-color: #fca5a5; color: #b91c1c; }
+        .chip-high     { background: #fff7ed; border-color: #fdba74; color: #c2410c; }
+        .chip-medium   { background: #fefce8; border-color: #fde047; color: #854d0e; }
+        .chip-low      { background: #f0fdf4; border-color: #86efac; color: #166534; }
+        .chip-info     { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+
+        .ai-score { font-size: 13px; color: var(--text2); }
+        .ai-score strong { color: var(--text); }
+
+        /* Confirmare */
+        .confirm-box {
+            display: none; text-align: center; padding: 40px 20px;
+        }
+        .confirm-box.visible { display: block; }
+        .confirm-icon { font-size: 3rem; margin-bottom: 12px; }
+        .confirm-box h3 { font-size: 20px; color: var(--blue); margin-bottom: 8px; }
+        .confirm-box p { color: var(--text2); font-size: 14px; }
+        .confirm-id {
+            display: inline-block; margin: 14px 0;
+            background: var(--blue); color: #fff;
+            font-size: 16px; font-weight: 700; font-family: monospace;
+            padding: 8px 20px; border-radius: 3px;
+        }
+
+        .severity-bar { display: flex; gap: 0; margin-top: 6px; border-radius: 3px; overflow: hidden; height: 6px; }
+        .sev-seg { flex: 1; }
+        .sev-1 { background: #86efac; }
+        .sev-2 { background: #fde047; }
+        .sev-3 { background: #fdba74; }
+        .sev-4 { background: #f87171; }
+        .sev-5 { background: #dc2626; }
+        .sev-active { opacity: 1; }
+        .sev-inactive { opacity: 0.2; }
+
+        .steps-progress {
+            display: flex; align-items: center; gap: 0;
+            margin-bottom: 24px;
+        }
+        .sp-step {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            flex: 1; font-size: 11px; color: var(--text3); font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .sp-circle {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 2px solid var(--border); background: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 12px; font-weight: 700; color: var(--text3);
+        }
+        .sp-step.done .sp-circle { background: var(--blue); border-color: var(--blue); color: #fff; }
+        .sp-step.active .sp-circle { border-color: var(--blue); color: var(--blue); }
+        .sp-line { flex: 1; height: 2px; background: var(--border); margin-bottom: 20px; }
+        .sp-line.done { background: var(--blue); }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="tricolor"><div class="tc-blue"></div><div class="tc-yellow"></div><div class="tc-red"></div></div>
+<header class="header">
+    <div class="wrap header-inner">
+        <a href="index.html" class="logo">
+            <img src="assets/dias-logo.png" alt="D.I.A.S.">
+            <div class="logo-text">
+                <div class="logo-name">D.I.A.S.</div>
+                <div class="logo-full">Detașamentul de Intervenție și Acțiuni Speciale</div>
+                <div class="logo-sub">Securitate digitală · Protecție online · România</div>
+            </div>
+        </a>
+        <div class="header-right"><a href="sesizare.html" class="header-sesizare">⚑ Raportează incident</a></div>
+    </div>
+</header>
+<nav class="nav">
+    <div class="wrap nav-inner">
+        <a href="index.html" class="nav-link">Acasă</a>
+        <a href="despre.html" class="nav-link">Prezentare</a>
+        <a href="stiri.html" class="nav-link">Știri</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="sesizare.html" class="nav-link active">Raportare</a>
+    </div>
+</nav>
+<div class="page-bar"><div class="wrap page-bar-inner"><a href="index.html">Acasă</a><span class="pb-sep">›</span><span>Raportare incident</span></div></div>
+
+<div class="wrap main-layout">
+<main class="main-content">
+
+<section class="content-block">
+    <h2 class="block-title">Raportare incident de securitate digitală</h2>
+    <p>Utilizează formularul de mai jos pentru a raporta un incident. Sistemul D.I.A.S. analizează automat descrierea și clasifică incidentul după tip și severitate. Toate sesizările sunt confidențiale și tratate în 24–48 ore.</p>
+
+    <!-- Progress steps -->
+    <div class="steps-progress" id="stepsProgress">
+        <div class="sp-step active" id="step1"><div class="sp-circle">1</div><span>Date incident</span></div>
+        <div class="sp-line" id="line1"></div>
+        <div class="sp-step" id="step2"><div class="sp-circle">2</div><span>Clasificare AI</span></div>
+        <div class="sp-line" id="line2"></div>
+        <div class="sp-step" id="step3"><div class="sp-circle">3</div><span>Confirmare</span></div>
+    </div>
+
+    <!-- FORM -->
+    <form class="incident-form" id="incidentForm">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Prenume și Nume <span class="req">*</span></label>
+                <input type="text" id="f-name" placeholder="ex: Ion Popescu" required>
+            </div>
+            <div class="form-group">
+                <label>Email contact <span class="req">*</span></label>
+                <input type="email" id="f-email" placeholder="email@exemplu.ro" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Tipul incidentului <span class="req">*</span></label>
+                <select id="f-type" required>
+                    <option value="">— Selectează —</option>
+                    <option value="bullying">Bullying / Hărțuire online</option>
+                    <option value="phishing">Phishing / Tentativă de fraudă</option>
+                    <option value="amenintare">Amenințare / Șantaj</option>
+                    <option value="frauda">Fraudă / Escrocherie</option>
+                    <option value="dezinformare">Dezinformare / Știri false</option>
+                    <option value="date-personale">Expunere date personale</option>
+                    <option value="minori">Incident care implică minori</option>
+                    <option value="alt">Altele</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Platforma / mediul afectat <span class="req">*</span></label>
+                <select id="f-platform" required>
+                    <option value="">— Selectează —</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="instagram">Instagram</option>
+                    <option value="tiktok">TikTok</option>
+                    <option value="discord">Discord</option>
+                    <option value="whatsapp">WhatsApp</option>
+                    <option value="telegram">Telegram</option>
+                    <option value="youtube">YouTube</option>
+                    <option value="email">Email</option>
+                    <option value="sms">SMS / Telefon</option>
+                    <option value="site">Site web</option>
+                    <option value="joc">Joc online</option>
+                    <option value="alt">Alta platformă</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Descrierea incidentului <span class="req">*</span></label>
+            <textarea id="f-desc" placeholder="Descrie în detaliu ce s-a întâmplat: cine, când, cum, ce mesaje au fost trimise, ce daune au apărut..." required oninput="analyzeIncident()"></textarea>
+            <div class="form-hint">Minimum 50 de caractere. Cu cât descrierea este mai detaliată, cu atât clasificarea AI va fi mai precisă.</div>
+        </div>
+
+        <!-- BOX CLASIFICARE AI -->
+        <div class="ai-box" id="aiBox">
+            <div class="ai-box-title">🤖 Analiză automată D.I.A.S. AI</div>
+            <div class="ai-chips" id="aiChips"></div>
+            <div class="ai-score" id="aiScore"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label>Data incidentului</label>
+                <input type="date" id="f-date">
+            </div>
+            <div class="form-group">
+                <label>Victima este minoră?</label>
+                <select id="f-minor">
+                    <option value="nu">Nu</option>
+                    <option value="da">Da</option>
+                    <option value="necunoscut">Necunoscut</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Link-uri relevante / dovezi (opțional)</label>
+            <input type="text" id="f-links" placeholder="https://... (separat prin virgulă)">
+            <div class="form-hint">Adaugă link-uri către postări, profiluri, capturi de ecran publice sau alte dovezi digitale.</div>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="f-gdpr" required style="width:auto;margin-right:8px;">
+                Am citit și accept <a href="confidentialitate.html" target="_blank">Politica de confidențialitate</a> și înțeleg că datele mele vor fi procesate conform GDPR. <span class="req">*</span>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label>
+                <input type="checkbox" id="f-anon" style="width:auto;margin-right:8px;">
+                Doresc să rămân anonim (datele de contact nu vor fi stocate)
+            </label>
+        </div>
+
+        <button type="submit" class="form-submit" id="submitBtn">Trimite sesizarea →</button>
+    </form>
+
+    <!-- CONFIRMARE -->
+    <div class="confirm-box" id="confirmBox">
+        <div class="confirm-icon">✅</div>
+        <h3>Sesizare înregistrată cu succes</h3>
+        <p>Numărul tău de referință:</p>
+        <div class="confirm-id" id="confirmId">DIAS-2026-####</div>
+        <p>Echipa D.I.A.S. va analiza sesizarea ta în <strong>24–48 de ore</strong>.<br>
+        Vei fi contactat pe adresa de email furnizată (dacă nu ai ales anonimizarea).</p>
+        <br>
+        <a href="index.html" class="hero-btn-primary" style="display:inline-block;margin-top:8px;">Înapoi la pagina principală</a>
+    </div>
+</section>
+</main>
+
+<aside class="sidebar">
+    <div class="side-widget urgent-widget">
+        <div class="side-widget-title">⚠ Urgențe fizice</div>
+        <p>Dacă ești în pericol imediat, sună <strong style="color:#b91c1c;font-size:20px;">112</strong> acum.</p>
+        <p style="font-size:12px;margin-top:8px;">D.I.A.S. gestionează incidente digitale, nu urgențe fizice.</p>
+    </div>
+
+    <div class="side-widget">
+        <div class="side-widget-title">Tipuri de incidente</div>
+        <ul class="side-links">
+            <li><a href="#">🛡️ Bullying online</a></li>
+            <li><a href="#">🔍 Phishing</a></li>
+            <li><a href="#">⚠️ Amenințări / Șantaj</a></li>
+            <li><a href="#">💳 Fraudă digitală</a></li>
+            <li><a href="#">👶 Protecția minorilor</a></li>
+            <li><a href="#">📢 Dezinformare</a></li>
+        </ul>
+    </div>
+
+    <div class="side-widget">
+        <div class="side-widget-title">Resurse utile</div>
+        <ul class="side-links">
+            <li><a href="https://www.politiaromana.ro" target="_blank">Poliția Română</a></li>
+            <li><a href="https://www.cert.ro" target="_blank">CERT-RO</a></li>
+            <li><a href="https://www.dnsc.ro" target="_blank">DNSC</a></li>
+            <li><a href="https://www.anpdpd.ro" target="_blank">ANSPDCP (GDPR)</a></li>
+        </ul>
+    </div>
+
+    <div class="side-widget">
+        <div class="side-widget-title">Confidențialitate</div>
+        <p>Toate datele transmise sunt procesate conform GDPR. Nu le partajăm cu terți fără consimțământul tău.</p>
+        <a href="confidentialitate.html" class="side-btn" style="margin-top:10px;">Citește politica →</a>
+    </div>
+</aside>
+</div>
+
+<footer class="footer">
+    <div class="footer-top"><div class="wrap footer-top-inner">
+        <div class="footer-brand"><img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo"><div><div class="footer-brand-name">D.I.A.S.</div><div class="footer-brand-sub">Detașamentul de Intervenție și Acțiuni Speciale</div></div></div>
+        <div class="footer-nav"><div class="footer-nav-title">Navigare</div><a href="index.html">Acasă</a><a href="despre.html">Prezentare</a><a href="stiri.html">Știri</a><a href="contact.html">Contact</a><a href="sesizare.html">Raportare</a></div>
+        <div class="footer-nav"><div class="footer-nav-title">Legal</div><a href="confidentialitate.html">Politică confidențialitate</a><a href="confidentialitate.html#gdpr">GDPR</a><a href="confidentialitate.html#disclosure">Responsible Disclosure</a></div>
+        <div class="footer-nav"><div class="footer-nav-title">Mențiuni legale</div><p>D.I.A.S. este o organizație de voluntariat. Urgențe: <strong>112</strong>.</p></div>
+    </div></div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 D.I.A.S. — Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div>
+</footer>
+
+<script>
+// ── Clasificare AI client-side ──────────────────────────────────────
+const KEYWORDS = {
+    bullying:   ['hartuire','bully','insulte','amenintat','umilinta','agresiv','jignit','atacat','toxic','urat','prost','idiot','freak','troll'],
+    phishing:   ['phishing','link suspect','cont bancar','parola','credentiale','fals','impostor','verifica contul','card','iban','transfer'],
+    amenintare: ['amenintare','te omor','te gasesc','stiu unde','iti fac','razbun','voi plati','santaj','extorcare','revenge'],
+    frauda:     ['frauda','inselatorie','bani','platit','primit nimic','castiga','premiu','loterie','investitie','cripto','dubios'],
+    minori:     ['copil','minor','elev','scoala','profesor','varsta','ani','clasa','liceu','bully','copii'],
+    dezinformare: ['stiri false','fake news','manipulare','propaganda','dezinformare','minciuni','conspiratie']
+};
+
+const SEVERITY = {
+    amenintare: 5, minori: 5,
+    phishing: 4, frauda: 4,
+    bullying: 3,
+    dezinformare: 2
+};
+
+function analyzeIncident() {
+    const desc = (document.getElementById('f-desc').value || '').toLowerCase();
+    const type = document.getElementById('f-type').value;
+    const minor = document.getElementById('f-minor').value;
+    const aiBox = document.getElementById('aiBox');
+    const aiChips = document.getElementById('aiChips');
+    const aiScore = document.getElementById('aiScore');
+
+    if (desc.length < 30) { aiBox.classList.remove('visible'); return; }
+
+    // Detecteaza categorii
+    let detected = [];
+    let maxSev = 1;
+
+    for (const [cat, words] of Object.entries(KEYWORDS)) {
+        const hits = words.filter(w => desc.includes(w));
+        if (hits.length > 0) {
+            detected.push({ cat, hits: hits.length, sev: SEVERITY[cat] || 2 });
+            if ((SEVERITY[cat] || 2) > maxSev) maxSev = SEVERITY[cat] || 2;
+        }
+    }
+
+    if (type && type !== 'alt') {
+        const sv = SEVERITY[type] || 2;
+        if (!detected.find(d => d.cat === type)) detected.push({ cat: type, hits: 1, sev: sv });
+        if (sv > maxSev) maxSev = sv;
+    }
+    if (minor === 'da') { maxSev = Math.max(maxSev, 5); detected.push({ cat: 'minori', hits: 1, sev: 5 }); }
+
+    if (detected.length === 0) { aiBox.classList.remove('visible'); return; }
+
+    // Niveluri severitate
+    const sevLabels = ['', 'Scăzut', 'Mediu', 'Ridicat', 'Critic', 'MAXIM'];
+    const sevClasses = ['', 'chip-low', 'chip-medium', 'chip-high', 'chip-critical', 'chip-critical'];
+    const catLabels = {
+        bullying: '🛡️ Bullying', phishing: '🎣 Phishing', amenintare: '⚠️ Amenințare',
+        frauda: '💳 Fraudă', minori: '👶 Minor implicat', dezinformare: '📢 Dezinformare',
+        'date-personale': '🔒 Date personale', alt: '📋 Altele'
+    };
+
+    // Chips
+    const unique = [...new Map(detected.map(d => [d.cat, d])).values()];
+    aiChips.innerHTML = unique.map(d =>
+        `<span class="ai-chip chip-info">${catLabels[d.cat] || d.cat}</span>`
+    ).join('') +
+    `<span class="ai-chip ${sevClasses[maxSev]}">Severitate: ${sevLabels[maxSev]}</span>`;
+
+    // Prioritate estimata
+    const priorityText = maxSev >= 5 ? 'URGENT — răspuns în max. 2 ore' :
+                         maxSev >= 4 ? 'Ridicată — răspuns în max. 12 ore' :
+                         maxSev >= 3 ? 'Medie — răspuns în 24 ore' :
+                                       'Standard — răspuns în 48 ore';
+
+    aiScore.innerHTML = `<strong>Prioritate estimată:</strong> ${priorityText}<br>
+    <span style="font-size:11px;color:#888;">Clasificare automată · Va fi verificată de un operator D.I.A.S.</span>`;
+
+    aiBox.classList.add('visible');
+    aiBox.style.borderLeftColor = maxSev >= 4 ? '#b91c1c' : maxSev >= 3 ? '#d97706' : '#003580';
+}
+
+// ── Submit formular ──────────────────────────────────────────────────
+document.getElementById('incidentForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Se trimite...';
+
+    const isAnon = document.getElementById('f-anon').checked;
+    const id = 'DIAS-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 9000) + 1000);
+
+    // Trimite pe email via mailto (fallback simplu)
+    const name  = isAnon ? 'Anonim' : document.getElementById('f-name').value;
+    const email = isAnon ? 'anonim' : document.getElementById('f-email').value;
+    const type  = document.getElementById('f-type').value;
+    const plat  = document.getElementById('f-platform').value;
+    const desc  = document.getElementById('f-desc').value;
+    const links = document.getElementById('f-links').value;
+    const minor = document.getElementById('f-minor').value;
+    const date  = document.getElementById('f-date').value;
+
+    // Construieste subiect si corp email
+    const subject = encodeURIComponent(`[${id}] Sesizare ${type} — ${plat}`);
+    const body = encodeURIComponent(
+        `ID Sesizare: ${id}\n` +
+        `Data raportarii: ${new Date().toLocaleString('ro-RO')}\n` +
+        `Data incident: ${date || 'Nespecificat'}\n\n` +
+        `Raportat de: ${name}\n` +
+        `Email contact: ${email}\n\n` +
+        `Tip incident: ${type}\n` +
+        `Platforma: ${plat}\n` +
+        `Minor implicat: ${minor}\n\n` +
+        `Descriere:\n${desc}\n\n` +
+        `Dovezi/Link-uri: ${links || 'Niciuna'}\n`
+    );
+
+    // Deschide clientul de email
+    window.location.href = `mailto:dias.contact.ro@gmail.com?subject=${subject}&body=${body}`;
+
+    // Arata confirmarea dupa 1.5s
+    setTimeout(() => {
+        document.getElementById('incidentForm').style.display = 'none';
+        const confirmBox = document.getElementById('confirmBox');
+        document.getElementById('confirmId').textContent = id;
+        confirmBox.classList.add('visible');
+
+        // Actualizeaza step-uri
+        document.getElementById('step1').classList.remove('active');
+        document.getElementById('step1').classList.add('done');
+        document.getElementById('line1').classList.add('done');
+        document.getElementById('step2').classList.remove('active');
+        document.getElementById('step2').classList.add('done');
+        document.getElementById('line2').classList.add('done');
+        document.getElementById('step3').classList.add('done');
+    }, 1500);
+});
+
+// Trigger analiza la schimbarea tipului/platformei
+document.getElementById('f-type').addEventListener('change', analyzeIncident);
+document.getElementById('f-minor').addEventListener('change', analyzeIncident);
+</script>
+</body>
+</html>

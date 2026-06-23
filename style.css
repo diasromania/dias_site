@@ -217,3 +217,194 @@ strong { font-weight: 700; color: var(--text); }
     .footer-bottom-inner { flex-direction: column; gap: 4px; }
     .header-sesizare { font-size: 12px; padding: 7px 14px; }
 }
+
+/* ── HERO ACTUALIZAT ─────────────────────────────────── */
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.85);
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 2px;
+    margin-bottom: 16px;
+}
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.hero-btn-primary {
+    display: inline-block; padding: 11px 28px;
+    background: #fff; color: var(--blue);
+    font-size: 13px; font-weight: 700; border-radius: 3px;
+    transition: all .2s;
+}
+.hero-btn-primary:hover { background: #e8f0fb; text-decoration: none; color: var(--blue); }
+.hero-btn-sec {
+    display: inline-block; padding: 11px 28px;
+    background: transparent; border: 1px solid rgba(255,255,255,0.5);
+    color: #fff; font-size: 13px; font-weight: 600; border-radius: 3px;
+    transition: all .2s;
+}
+.hero-btn-sec:hover { background: rgba(255,255,255,0.12); text-decoration: none; color: #fff; }
+
+/* ── STATISTICI ──────────────────────────────────────── */
+.stats-section {
+    background: var(--blue);
+    padding: 28px 0;
+    border-bottom: 3px solid var(--gold);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+}
+.stat-card {
+    text-align: center;
+    padding: 16px 20px;
+    border-right: 1px solid rgba(255,255,255,0.15);
+}
+.stat-card:last-child { border-right: none; }
+.stat-number {
+    font-size: 2.4rem; font-weight: 800;
+    color: #fff; line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+.stat-label {
+    font-size: 13px; font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-top: 6px;
+}
+.stat-sub {
+    font-size: 11px; color: rgba(255,255,255,0.5);
+    margin-top: 3px;
+}
+
+/* ── DOMENII GRID ────────────────────────────────────── */
+.domenii-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 4px;
+}
+.domeniu-card {
+    border: 1px solid var(--border);
+    padding: 16px 14px;
+    background: var(--gray);
+    transition: border-color .2s, background .2s;
+}
+.domeniu-card:hover {
+    border-color: var(--blue);
+    background: var(--blue-l);
+}
+.domeniu-icon { font-size: 1.6rem; margin-bottom: 8px; }
+.domeniu-title { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 5px; }
+.domeniu-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+/* ── STEPS ───────────────────────────────────────────── */
+.steps-list { display: flex; flex-direction: column; gap: 0; }
+.step {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+.step:last-child { border-bottom: none; padding-bottom: 0; }
+.step-num {
+    font-size: 1.6rem; font-weight: 800;
+    color: var(--blue); opacity: 0.25;
+    min-width: 36px; line-height: 1;
+    flex-shrink: 0;
+}
+.step-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: var(--text2); line-height: 1.6; margin: 0; }
+
+/* ── STATUS WIDGET ───────────────────────────────────── */
+.status-list { padding: 10px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+.status-row { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--text2); }
+.status-dot {
+    width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0;
+}
+.status-dot.green { background: #16a34a; box-shadow: 0 0 5px rgba(22,163,74,0.5); }
+.status-dot.yellow { background: #d97706; box-shadow: 0 0 5px rgba(217,119,6,0.5); }
+.status-dot.red { background: #dc2626; box-shadow: 0 0 5px rgba(220,38,38,0.5); }
+.status-text { font-weight: 600; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .domenii-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .domenii-grid { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+    .hero-btn-primary, .hero-btn-sec { text-align: center; }
+}
+
+/* ── ALERTE BAR ──────────────────────────────────────── */
+.alerte-bar {
+    background: #1a0000;
+    border-bottom: 1px solid #7f1d1d;
+    padding: 7px 0;
+    overflow: hidden;
+}
+.alerte-inner {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 12px;
+}
+.alerte-label {
+    font-weight: 800; color: #fca5a5;
+    white-space: nowrap; flex-shrink: 0;
+    letter-spacing: 0.5px;
+}
+.alerte-ticker {
+    flex: 1; overflow: hidden;
+    display: flex; gap: 40px;
+    color: rgba(252,165,165,0.75);
+    animation: ticker 18s linear infinite;
+    white-space: nowrap;
+}
+@keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.alerte-link {
+    white-space: nowrap; flex-shrink: 0;
+    color: #fca5a5; font-weight: 700;
+    font-size: 12px; text-decoration: none;
+}
+.alerte-link:hover { text-decoration: underline; color: #fff; }
+
+/* ── OPERATIUNI ──────────────────────────────────────── */
+.operatiuni-list {
+    display: flex; flex-direction: column; gap: 0;
+}
+.op-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+}
+.op-item:last-child { border-bottom: none; padding-bottom: 0; }
+.op-status {
+    font-size: 10px; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 2px;
+    white-space: nowrap; flex-shrink: 0;
+    background: #dcfce7; color: #166534;
+    margin-top: 2px;
+}
+.op-activ-badge {
+    background: #fff7ed; color: #9a3412;
+}
+.op-body { flex: 1; min-width: 0; }
+.op-title {
+    font-size: 13px; font-weight: 700;
+    color: var(--text); margin-bottom: 5px;
+    font-family: monospace; letter-spacing: 0.2px;
+}
+.op-desc {
+    font-size: 12px; color: var(--text2);
+    line-height: 1.6; margin-bottom: 8px;
+}
+.op-meta {
+    display: flex; gap: 16px;
+    font-size: 11px; color: var(--text3);
+}
+.op-meta span { display: flex; align-items: center; gap: 4px; }
