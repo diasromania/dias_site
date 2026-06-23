@@ -74,37 +74,52 @@
     footer { background: #002B7F; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 2rem; }
     footer p { margin: 4px 0; font-size: 0.85rem; opacity: .8; }
     footer a { color: #FCD116; text-decoration: none; }
-  </style>
+</style>
 </head>
 <body>
-  <div class="tricolor-bar"></div>
-  <header>
-    <div class="logo-area">
-      <div class="logo-icon">D.I.A.S</div>
-      <div class="logo-text">
-        <h1>D.I.A.S.</h1>
-        <p>Digitalizare · Informare · Apărare · Siguranță</p>
-      </div>
+<div class="tricolor"><div class="tc-blue"></div><div class="tc-yellow"></div><div class="tc-red"></div></div>
+<header class="header">
+    <div class="wrap header-inner">
+        <a href="index.html" class="logo">
+            <img src="assets/dias-logo.png" alt="D.I.A.S.">
+            <div class="logo-text">
+                <div class="logo-name">D.I.A.S.</div>
+                <div class="logo-full">Detașamentul de Intervenție și Acțiuni Speciale</div>
+                <div class="logo-sub">Securitate digitală · Protecție online · România</div>
+            </div>
+        </a>
+        <div class="header-right"><a href="sesizare.html" class="header-sesizare">⚑ Sesizare urgentă</a></div>
     </div>
-    <nav>
-      <a href="index.html">Acasă</a>
-      <a href="prezentare.html">Prezentare</a>
-      <a href="educatie.html">Educație</a>
-      <a href="comunitate.html">Comunitate</a>
-      <a href="stiri.html">Știri</a>
-      <a href="contact.html">Contact</a>
-      <a href="raportare.html" class="nav-report">🚨 Raportare</a>
-    </nav>
-  </header>
+</header>
+<nav class="nav">
+    <div class="wrap nav-inner">
+        <a href="index.html" class="nav-link">Acasă</a>
+        <a href="despre.html" class="nav-link">Prezentare</a>
+        <a href="educatie.html" class="nav-link">Educație</a>
+        <a href="comunitate.html" class="nav-link">Comunitate</a>
+        <a href="colaborari.html" class="nav-link active">Colaborări</a>
+        <a href="stiri.html" class="nav-link">Știri</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="sesizare.html" class="nav-link">Raportare</a>
+    </div>
+</nav>
+<div class="page-bar"><div class="wrap page-bar-inner"><a href="index.html">Acasă</a><span class="pb-sep">›</span><span>Colaborări</span></div></div>
 
-  <div class="hero">
-    <h2>Construim parteneriate pentru un internet mai sigur</h2>
-    <p>D.I.A.S. colaborează cu instituții publice, universități, ONG-uri și companii de securitate cibernetică pentru a proteja cetățenii în spațiul digital.</p>
-  </div>
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="wrap hero-content">
+        <div class="hero-badge">COLABORĂRI INSTITUȚIONALE</div>
+        <h1>Construim parteneriate pentru un internet mai sigur</h1>
+        <p>D.I.A.S. colaborează cu instituții publice, universități, ONG-uri și companii de securitate cibernetică.</p>
+        <div class="hero-btns">
+            <a href="#formular" class="hero-btn-primary">Propune o colaborare</a>
+            <a href="#categorii" class="hero-btn-sec">Vezi colaboratorii</a>
+        </div>
+    </div>
+</section>
 
-  <div class="page-wrap">
-    <!-- MAIN -->
-    <main>
+<div class="wrap main-layout">
+<main class="main-content">
       <!-- Intro DNSC -->
       <div class="dnsc-box">
         <h3>🤝 Viziunea noastră de colaborare – parteneriat cu DNSC</h3>
@@ -224,52 +239,47 @@
       </div>
     </main>
 
-    <!-- SIDEBAR -->
-    <aside>
-      <div class="sidebar-widget widget-urgent">
-        <h4>🚨 Sesizare urgentă</h4>
-        <p>Ai identificat un incident de securitate cibernetică care necesită atenție imediată?</p>
-        <a href="raportare.html" class="btn-urgent">Raportează acum</a>
-      </div>
-
-      <div class="sidebar-widget">
-        <h4>📞 Contact direct</h4>
-        <ul>
-          <li>📧 <a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></li>
-          <li>🌐 Pentru colaborări instituționale, includeți antetul oficial al organizației.</li>
-          <li>📄 Răspundem în maxim 5 zile lucrătoare.</li>
-        </ul>
-      </div>
-
-      <div class="sidebar-widget">
-        <h4>🔗 Tipuri de colaborare</h4>
-        <ul>
-          <li>Parteneriate educaționale</li>
-          <li>Schimb de informații despre amenințări</li>
-          <li>Suport tehnic și infrastructură</li>
-          <li>Campanii naționale de conștientizare</li>
-          <li>Voluntariat și resurse umane</li>
-          <li>Finanțare și sponsorizare</li>
-        </ul>
-      </div>
-
-      <div class="sidebar-widget">
-        <h4>📚 Resurse</h4>
-        <ul>
-          <li><a href="https://dnsc.ro" target="_blank">dnsc.ro – DNSC oficial</a></li>
-          <li><a href="https://cert.ro" target="_blank">cert.ro – CERT-RO</a></li>
-          <li><a href="https://sigur.info" target="_blank">sigur.info – Siguranță online</a></li>
-          <li><a href="educatie.html">Resurse educaționale D.I.A.S.</a></li>
-        </ul>
-      </div>
+    <aside class="sidebar">
+        <div class="side-widget urgent-widget">
+            <div class="side-widget-title">⚑ Sesizare urgentă</div>
+            <p>Ai o problemă? Echipa D.I.A.S. răspunde în 24–48 ore.</p>
+            <a href="sesizare.html" class="side-btn">Raportează incident</a>
+        </div>
+        <div class="side-widget">
+            <div class="side-widget-title">Contact direct</div>
+            <div class="side-info-row"><span class="si-label">Email</span><a href="mailto:dias.contact.ro@gmail.com">dias.contact.ro@gmail.com</a></div>
+            <div class="side-info-row"><span class="si-label">Discord</span><a href="https://discord.gg/egsZMS3j5e" target="_blank">Alătură-te</a></div>
+        </div>
+        <div class="side-widget">
+            <div class="side-widget-title">Tipuri de colaborare</div>
+            <ul class="side-links">
+                <li><a href="#formular">Parteneriate educaționale</a></li>
+                <li><a href="#formular">Schimb de informații</a></li>
+                <li><a href="#formular">Suport tehnic</a></li>
+                <li><a href="#formular">Campanii de conștientizare</a></li>
+                <li><a href="#formular">Voluntariat</a></li>
+            </ul>
+        </div>
+        <div class="side-widget">
+            <div class="side-widget-title">Resurse utile</div>
+            <ul class="side-links">
+                <li><a href="https://dnsc.ro" target="_blank">DNSC</a></li>
+                <li><a href="https://cert.ro" target="_blank">CERT-RO</a></li>
+                <li><a href="https://sigur.info" target="_blank">Sigur.info</a></li>
+                <li><a href="educatie.html">Educație D.I.A.S.</a></li>
+            </ul>
+        </div>
     </aside>
-  </div>
+</div>
 
-  <footer>
-    <p><strong>D.I.A.S.</strong> – Digitalizare · Informare · Apărare · Siguranță</p>
-    <p>Proiect civic pentru siguranța digitală a cetățenilor români</p>
-    <p><a href="termeni.html">Termeni și condiții</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · <a href="contact.html">Contact</a></p>
-    <p style="margin-top:10px;opacity:.6;font-size:.8rem;">© 2026 D.I.A.S. – Conținut disponibil sub licență Creative Commons BY-NC-SA 4.0</p>
-  </footer>
+<footer class="footer">
+    <div class="footer-top"><div class="wrap footer-top-inner">
+        <div class="footer-brand"><img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo"><div><div class="footer-brand-name">D.I.A.S.</div><div class="footer-brand-sub">Detașamentul de Intervenție și Acțiuni Speciale<br>Securitate digitală · România</div></div></div>
+        <div class="footer-nav"><div class="footer-nav-title">Navigare</div><a href="index.html">Acasă</a><a href="despre.html">Prezentare</a><a href="educatie.html">Educație</a><a href="comunitate.html">Comunitate</a><a href="stiri.html">Știri</a><a href="contact.html">Contact</a></div>
+        <div class="footer-nav"><div class="footer-nav-title">Legal</div><a href="confidentialitate.html">Confidențialitate</a><a href="termeni.html">Termeni și condiții</a><a href="sesizare.html">Raportare incident</a></div>
+        <div class="footer-nav"><div class="footer-nav-title">Mențiuni legale</div><p>D.I.A.S. este o organizație de voluntariat. Urgențe: <strong>112</strong>.</p></div>
+    </div></div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 D.I.A.S. — Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div>
+</footer>
 </body>
 </html>

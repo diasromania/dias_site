@@ -90,36 +90,54 @@
   </style>
 </head>
 <body>
-  <div class="tricolor-bar"></div>
-  <header>
-    <div class="logo-area">
-      <div class="logo-icon">D.I.A.S</div>
-      <div class="logo-text">
-        <h1>D.I.A.S.</h1>
-        <p>Digitalizare · Informare · Apărare · Siguranță</p>
-      </div>
+<div class="tricolor"><div class="tc-blue"></div><div class="tc-yellow"></div><div class="tc-red"></div></div>
+<header class="header">
+    <div class="wrap header-inner">
+        <a href="index.html" class="logo">
+            <img src="assets/dias-logo.png" alt="D.I.A.S.">
+            <div class="logo-text">
+                <div class="logo-name">D.I.A.S.</div>
+                <div class="logo-full">Detașamentul de Intervenție și Acțiuni Speciale</div>
+                <div class="logo-sub">Securitate digitală · Protecție online · România</div>
+            </div>
+        </a>
+        <div class="header-right"><a href="sesizare.html" class="header-sesizare">⚑ Sesizare urgentă</a></div>
     </div>
-    <nav>
-      <a href="index.html">Acasă</a>
-      <a href="prezentare.html">Prezentare</a>
-      <a href="educatie.html" class="active">Educație</a>
-      <a href="comunitate.html">Comunitate</a>
-      <a href="stiri.html">Știri</a>
-      <a href="contact.html">Contact</a>
-      <a href="raportare.html" class="nav-report">🚨 Raportare</a>
-    </nav>
-  </header>
+</header>
+<nav class="nav">
+    <div class="wrap nav-inner">
+        <a href="index.html" class="nav-link">Acasă</a>
+        <a href="despre.html" class="nav-link">Prezentare</a>
+        <a href="educatie.html" class="nav-link active">Educație</a>
+        <a href="comunitate.html" class="nav-link">Comunitate</a>
+        <a href="colaborari.html" class="nav-link">Colaborări</a>
+        <a href="stiri.html" class="nav-link">Știri</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="sesizare.html" class="nav-link">Raportare</a>
+    </div>
+</nav>
+<div class="page-bar"><div class="wrap page-bar-inner"><a href="index.html">Acasă</a><span class="pb-sep">›</span><span>Educație digitală</span></div></div>
 
-  <div class="hero">
-    <h2>Înveți. Te protejezi. Acționezi.</h2>
-    <p>Resurse practice de educație digitală pentru cetățeni, elevi, părinți și profesori. Cunoașterea este primul scut împotriva amenințărilor online.</p>
-  </div>
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="wrap hero-content">
+        <div class="hero-badge">EDUCAȚIE DIGITALĂ</div>
+        <h1>Înveți. Te protejezi. Acționezi.</h1>
+        <p>Resurse practice de educație digitală pentru cetățeni, elevi, părinți și profesori.</p>
+        <div class="hero-btns">
+            <a href="#ghiduri" class="hero-btn-primary">Explorează ghidurile</a>
+            <a href="#quiz" class="hero-btn-sec">Testează-ți cunoștințele</a>
+        </div>
+    </div>
+</section>
 
-  <div class="page-wrap">
-    <main>
-      <!-- GHIDURI -->
-      <h2 class="section-title">📚 Ghiduri de securitate digitală</h2>
-      <div class="ghid-grid">
+<div class="wrap main-layout">
+<main class="main-content">
+    <!-- GHIDURI -->
+    <section class="content-block" id="ghiduri">
+    <h2 class="block-title">📚 Ghiduri de securitate digitală</h2>
+    <p style="margin-bottom:18px;">Selectează un ghid pentru a afla cum te poți proteja eficient în mediul digital.</p>
+    <div class="ghid-grid">
         <div class="ghid-card">
           <div class="g-icon">🎣</div>
           <h3>Cum recunoști phishing-ul</h3>
@@ -213,57 +231,61 @@
       </div>
     </main>
 
-    <!-- SIDEBAR -->
-    <aside>
-      <div class="sidebar-widget">
-        <h4>👶 Resurse pentru copii</h4>
-        <div class="target-group">Sfaturi pentru elevi:</div>
-        <ul>
-          <li>Nu da parola nimănui, nici prietenilor tăi cei mai buni.</li>
-          <li>Dacă cineva te deranjează online, spune unui adult de încredere.</li>
-          <li>Nu posta poze cu adresa sau școala ta.</li>
-          <li>Un prieten online nu este același cu un prieten în realitate.</li>
-        </ul>
+    <aside class="sidebar">
+      <div class="side-widget urgent-widget">
+          <div class="side-widget-title">⚑ Ai nevoie de ajutor?</div>
+          <p>Dacă ești victima unui atac online, echipa D.I.A.S. te poate ajuta.</p>
+          <a href="sesizare.html" class="side-btn">Raportează incident</a>
       </div>
-
-      <div class="sidebar-widget">
-        <h4>👨‍👩‍👧 Resurse pentru părinți</h4>
-        <ul>
-          <li>Activați controlul parental pe dispozitivele copiilor.</li>
-          <li>Vorbiți deschis despre pericolele online fără să creați panică.</li>
-          <li>Cunoașteți aplicațiile și platformele pe care le folosesc copiii.</li>
-          <li>Stabiliți reguli clare pentru timpul petrecut online.</li>
-        </ul>
+      <div class="side-widget">
+          <div class="side-widget-title">👶 Resurse pentru copii</div>
+          <ul class="side-links">
+              <li>Nu da parola nimănui, nici prietenilor.</li>
+              <li>Dacă cineva te deranjează online, spune unui adult.</li>
+              <li>Nu posta poze cu adresa sau școala ta.</li>
+              <li>Un prieten online ≠ prieten în realitate.</li>
+          </ul>
       </div>
-
-      <div class="sidebar-widget">
-        <h4>👩‍🏫 Resurse pentru profesori</h4>
-        <ul>
-          <li>Integrați lecții de siguranță digitală în orele de dirigenție.</li>
-          <li>Folosiți simulatoarele D.I.A.S. ca exerciții interactive în clasă.</li>
-          <li>Raportați incidentele de cyberbullying conform procedurilor școlii.</li>
-          <li>Descărcați materialele educaționale D.I.A.S. (licență CC)</li>
-        </ul>
+      <div class="side-widget">
+          <div class="side-widget-title">👨‍👩‍👧 Resurse pentru părinți</div>
+          <ul class="side-links">
+              <li>Activați controlul parental pe dispozitivele copiilor.</li>
+              <li>Vorbiți deschis despre pericolele online.</li>
+              <li>Cunoașteți aplicațiile pe care le folosesc copiii.</li>
+              <li>Stabiliți reguli clare pentru timpul online.</li>
+          </ul>
       </div>
-
-      <div class="sidebar-widget">
-        <h4>🔗 Link-uri utile</h4>
-        <ul>
-          <li><a href="https://cert.ro" target="_blank">cert.ro – CERT-RO</a></li>
+      <div class="side-widget">
+          <div class="side-widget-title">👩‍🏫 Resurse pentru profesori</div>
+          <ul class="side-links">
+              <li>Integrați lecții de siguranță digitală în dirigenție.</li>
+              <li>Folosiți simulatoarele D.I.A.S. în clasă.</li>
+              <li>Raportați cyberbullying-ul conform procedurilor.</li>
+          </ul>
+      </div>
+      <div class="side-widget">
+          <div class="side-widget-title">Resurse externe</div>
+          <ul class="side-links">
+              <li><a href="https://cert.ro" target="_blank">CERT-RO</a></li>
+              <li><a href="https://dnsc.ro" target="_blank">DNSC</a></li>
+              <li><a href="https://sigur.info" target="_blank">Sigur.info</a></li>
           <li><a href="https://dnsc.ro" target="_blank">dnsc.ro – DNSC</a></li>
           <li><a href="https://sigur.info" target="_blank">sigur.info – Siguranță online</a></li>
-          <li><a href="raportare.html">Raportează un incident D.I.A.S.</a></li>
+          <li><a href="sesizare.html">Raportează un incident D.I.A.S.</a></li>
         </ul>
       </div>
     </aside>
   </div>
 
-  <footer>
-    <p><strong>D.I.A.S.</strong> – Digitalizare · Informare · Apărare · Siguranță</p>
-    <p>Proiect civic pentru siguranța digitală a cetățenilor români</p>
-    <p><a href="termeni.html">Termeni și condiții</a> · <a href="confidentialitate.html">Politica de confidențialitate</a> · <a href="contact.html">Contact</a></p>
-    <p style="margin-top:10px;opacity:.6;font-size:.8rem;">© 2026 D.I.A.S. – Conținut disponibil sub licență Creative Commons BY-NC-SA 4.0</p>
-  </footer>
+<footer class="footer">
+    <div class="footer-top"><div class="wrap footer-top-inner">
+        <div class="footer-brand"><img src="assets/dias-logo.png" alt="D.I.A.S." class="footer-logo"><div><div class="footer-brand-name">D.I.A.S.</div><div class="footer-brand-sub">Detașamentul de Intervenție și Acțiuni Speciale<br>Securitate digitală · România</div></div></div>
+        <div class="footer-nav"><div class="footer-nav-title">Navigare</div><a href="index.html">Acasă</a><a href="despre.html">Prezentare</a><a href="educatie.html">Educație</a><a href="comunitate.html">Comunitate</a><a href="stiri.html">Știri</a><a href="contact.html">Contact</a></div>
+        <div class="footer-nav"><div class="footer-nav-title">Legal</div><a href="confidentialitate.html">Confidențialitate</a><a href="termeni.html">Termeni și condiții</a><a href="sesizare.html">Raportare incident</a></div>
+        <div class="footer-nav"><div class="footer-nav-title">Mențiuni legale</div><p>D.I.A.S. este o organizație de voluntariat. Urgențe: <strong>112</strong>.</p></div>
+    </div></div>
+    <div class="footer-bottom"><div class="wrap footer-bottom-inner"><span>© 2025 D.I.A.S. — Toate drepturile rezervate</span><span>dias.contact.ro@gmail.com</span></div></div>
+</footer>
 
   <script>
     // ===== QUIZ DATA =====
